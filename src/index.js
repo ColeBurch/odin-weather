@@ -16,4 +16,13 @@ function component() {
   return element;
 }
 
+async function getWeather() {
+  const apiResponse = await fetch(
+    "http://api.weatherapi.com/v1/forecast.json?key=83eb9e8a5cef4f549f114636231704&q=Golden, Colorado&days=7&aqi=no&alerts=no"
+  );
+  const weatherData = await apiResponse.json();
+  console.log(weatherData);
+}
+
 document.body.appendChild(component());
+getWeather();
