@@ -1,19 +1,50 @@
 import "./style.css";
-import printMe from "./print.js";
+import githubSVG from "./images/github.svg";
 
-function component() {
-  const element = document.createElement("div");
-  const btn = document.createElement("button");
+function createLayout() {
+  const wrapper = document.createElement("div");
+  wrapper.classList.add("wrapper");
 
-  element.innerHTML = "Hello Webpack on the server";
-  btn.innerHTML = "Click me and check the console!";
+  const header = document.createElement("header");
+  header.classList.add("header");
 
-  btn.onclick = printMe;
+  const searchContainer = document.createElement("div");
+  searchContainer.classList.add("searchContainer");
 
-  element.classList.add("hello");
-  element.appendChild(btn);
+  const form = document.createElement("form");
+  form.classList.add("form");
 
-  return element;
+  const areaInput = document.createElement("input");
+  areaInput.classList.add("areaInput");
+  areaInput.setAttribute("id", "areaInput");
+  areaInput.setAttribute("type", "text");
+  areaInput.setAttribute("placeholder", "search city");
+
+  const mainBody = document.createElement("div");
+  mainBody.classList.add("mainBody");
+
+  const footer = document.createElement("footer");
+
+  const footerText = document.createElement("div");
+  footerText.classList.add("footerText");
+  footerText.textContent = "Made by Cole Burch";
+
+  const github = new Image();
+  github.src = githubSVG;
+  github.classList.add("github");
+
+  header.appendChild(searchContainer);
+  searchContainer.appendChild(form);
+  form.appendChild(areaInput);
+  footer.appendChild(footerText);
+  footer.appendChild(github);
+  wrapper.appendChild(header);
+  wrapper.appendChild(mainBody);
+  wrapper.appendChild(footer);
+
+  form.addEventListener("submit", handleSubmit);
+
+  return wrapper;
 }
 
 async function getWeather(location) {
@@ -21,7 +52,6 @@ async function getWeather(location) {
     "http://api.weatherapi.com/v1/forecast.json?key=83eb9e8a5cef4f549f114636231704&q=" +
     location +
     "&days=3&aqi=no&alerts=no";
-  console.log(url);
   const apiResponse = await fetch(url);
   const weatherData = await apiResponse.json();
 
@@ -89,6 +119,12 @@ function updateDashboard(weatherData) {
   console.log(weatherData);
 }
 
-document.body.appendChild(component());
+function handleSubmit(e) {
+  e.preventDefault();
+  let location = document.getElementById("areaInput").value;
+  getWeather(location);
+}
+
+document.body.appendChild(createLayout());
 let location = "Golden, Colorado";
 getWeather(location);

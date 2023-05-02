@@ -1,3 +1,47 @@
-.hello {
-  color: red;
+* {
+  margin: 0px;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+.wrapper {
+  min-height: 100%;
+  margin-bottom: -40px;
+  display: grid;
+  grid-template-rows: 80px 1fr;
+  background-color: #f0eef1;
+}
+
+.wrapper::after {
+  content: "";
+  display: block;
+}
+
+.header {
+  display: flex;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px, 1px, 4px;
+  justify-content: center;
+}
+
+footer .wrapper:after {
+  height: 40px;
+}
+
+footer {
+  display: flex;
+  text-align: center;
+  position: relative;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  justify-content: center;
+  gap: 10px;
+}
+
+.github {
+  height: 16px;
 }
