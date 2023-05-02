@@ -18,10 +18,54 @@ function createLayout() {
   areaInput.classList.add("areaInput");
   areaInput.setAttribute("id", "areaInput");
   areaInput.setAttribute("type", "text");
-  areaInput.setAttribute("placeholder", "search city");
+  areaInput.setAttribute("placeholder", "Search city");
 
   const mainBody = document.createElement("div");
   mainBody.classList.add("mainBody");
+
+  const leftBox = document.createElement("div");
+  leftBox.classList.add("leftBox");
+
+  const rightBox = document.createElement("div");
+  rightBox.classList.add("rightBox");
+
+  const currentDayWidget = document.createElement("div");
+  currentDayWidget.classList.add("currentDayWidget");
+
+  const locationAndCondition = document.createElement("div");
+  locationAndCondition.classList.add("locationAndCondition");
+
+  const condition = document.createElement("div");
+  condition.classList.add("condition");
+  condition.textContent = "Condition";
+
+  const location = document.createElement("div");
+  location.classList.add("location");
+  location.textContent = "Location";
+
+  const currentWeatherDetails = document.createElement("div");
+  currentWeatherDetails.classList.add("currentWeatherDetails");
+
+  const currentTempF = document.createElement("div");
+  currentTempF.classList.add("currentTempF");
+  currentTempF.classList.add("active");
+  currentTempF.textContent = "50";
+
+  const currentWeatherMoreDetails = document.createElement("div");
+  currentWeatherMoreDetails.classList.add("currentWeatherMoreDetails");
+
+  const feelsLikeF = document.createElement("div");
+  feelsLikeF.classList.add("moreDetails");
+  feelsLikeF.classList.add("active");
+  feelsLikeF.textContent = "FEELS LIKE: 55";
+
+  const windSpeed = document.createElement("div");
+  windSpeed.classList.add("moreDetails");
+  windSpeed.textContent = "WIND: 10 MPH";
+
+  const humidity = document.createElement("div");
+  humidity.classList.add("moreDetails");
+  humidity.textContent = "HUMIDITY: 10%";
 
   const footer = document.createElement("footer");
 
@@ -36,6 +80,18 @@ function createLayout() {
   header.appendChild(searchContainer);
   searchContainer.appendChild(form);
   form.appendChild(areaInput);
+  mainBody.appendChild(leftBox);
+  mainBody.appendChild(rightBox);
+  leftBox.appendChild(currentDayWidget);
+  currentDayWidget.appendChild(locationAndCondition);
+  locationAndCondition.appendChild(condition);
+  locationAndCondition.appendChild(location);
+  currentDayWidget.appendChild(currentWeatherDetails);
+  currentWeatherDetails.appendChild(currentTempF);
+  currentWeatherDetails.appendChild(currentWeatherMoreDetails);
+  currentWeatherMoreDetails.appendChild(feelsLikeF);
+  currentWeatherMoreDetails.appendChild(windSpeed);
+  currentWeatherMoreDetails.appendChild(humidity);
   footer.appendChild(footerText);
   footer.appendChild(github);
   wrapper.appendChild(header);
@@ -123,6 +179,7 @@ function handleSubmit(e) {
   e.preventDefault();
   let location = document.getElementById("areaInput").value;
   getWeather(location);
+  document.getElementById("areaInput").value = "";
 }
 
 document.body.appendChild(createLayout());

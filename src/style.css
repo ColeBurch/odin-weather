@@ -12,7 +12,7 @@ body {
   margin-bottom: -40px;
   display: grid;
   grid-template-rows: 80px 1fr;
-  background-color: #f0eef1;
+  background-color: #7c7a7a;
 }
 
 .wrapper::after {
@@ -22,9 +22,78 @@ body {
 
 .header {
   display: flex;
-  background-color: white;
-  box-shadow: rgba(0, 0, 0, 0.16) 0px, 1px, 4px;
+  justify-content: end;
+  padding-top: 30px;
+  padding-right: 30px;
+}
+
+.areaInput {
+  width: 16rem;
+  height: 100%;
+  border: none;
+  outline: none;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 0 0 0.3rem 4.5rem;
+  color: #f3f3f3;
+  font-size: 1.6rem;
+  border-radius: 0.5rem;
+}
+
+.mainBody {
+  display: grid;
+  grid-template-columns: 2fr 3fr;
   justify-content: center;
+  align-items: center;
+}
+
+.currentDayWidget {
+  display: grid;
+  grid-template-rows: 1fr 2fr;
+  margin-left: 20%;
+}
+
+.currentWeatherDetails {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.condition {
+  font-size: 2.2rem;
+  letter-spacing: 0.1rem;
+  padding-left: 0.3rem;
+}
+
+.location {
+  font-size: 4rem;
+  line-height: 3.5rem;
+  margin-bottom: 1rem;
+  font-weight: 800;
+  letter-spacing: 0.1rem;
+}
+
+.currentTempF {
+  font-size: 12rem;
+  font-weight: 900;
+  font-family: "Nunito", sans-serif;
+  position: relative;
+}
+
+.currentWeatherMoreDetails {
+  display: flex;
+  flex-direction: column;
+  border-left: 0.2rem solid rgba(255, 255, 255, 0.5);
+  top: 47%;
+  left: 22.5rem;
+  height: 11rem;
+  padding-left: 3.5rem;
+  justify-content: space-between;
+  position: absolute;
+}
+
+.moreDetails {
+  font-size: 1.5rem;
+  font-weight: 900;
+  letter-spacing: 0.1rem;
 }
 
 footer .wrapper:after {
