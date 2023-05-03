@@ -49,7 +49,7 @@ body {
 .currentDayWidget {
   display: grid;
   grid-template-rows: 1fr 2fr;
-  margin-left: 20%;
+  margin-left: 15%;
 }
 
 .currentWeatherDetails {
@@ -69,6 +69,7 @@ body {
   margin-bottom: 1rem;
   font-weight: 800;
   letter-spacing: 0.1rem;
+  white-space: nowrap;
 }
 
 .currentTempF {
@@ -76,24 +77,24 @@ body {
   font-weight: 900;
   font-family: "Nunito", sans-serif;
   position: relative;
+  white-space: nowrap;
 }
 
 .currentWeatherMoreDetails {
   display: flex;
   flex-direction: column;
   border-left: 0.2rem solid rgba(255, 255, 255, 0.5);
-  top: 47%;
-  left: 22.5rem;
   height: 11rem;
   padding-left: 3.5rem;
   justify-content: space-between;
-  position: absolute;
+  margin-left: 10px;
 }
 
 .moreDetails {
   font-size: 1.5rem;
   font-weight: 900;
   letter-spacing: 0.1rem;
+  white-space: nowrap;
 }
 
 footer .wrapper:after {

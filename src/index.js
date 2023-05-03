@@ -55,15 +55,18 @@ function createLayout() {
   currentWeatherMoreDetails.classList.add("currentWeatherMoreDetails");
 
   const feelsLikeF = document.createElement("div");
+  feelsLikeF.classList.add("feelsLikeF");
   feelsLikeF.classList.add("moreDetails");
   feelsLikeF.classList.add("active");
   feelsLikeF.textContent = "FEELS LIKE: 55";
 
   const windSpeed = document.createElement("div");
+  windSpeed.classList.add("windSpeed");
   windSpeed.classList.add("moreDetails");
   windSpeed.textContent = "WIND: 10 MPH";
 
   const humidity = document.createElement("div");
+  humidity.classList.add("humidity");
   humidity.classList.add("moreDetails");
   humidity.textContent = "HUMIDITY: 10%";
 
@@ -173,6 +176,23 @@ async function getWeather(location) {
 
 function updateDashboard(weatherData) {
   console.log(weatherData);
+  const locationParameter = document.querySelector(".location");
+  locationParameter.textContent =
+    weatherData.locationName + ", " + weatherData.regionName;
+  const conditionParameter = document.querySelector(".condition");
+  conditionParameter.textContent = weatherData.currentCondition;
+  const currentTempFParameter = document.querySelector(".currentTempF");
+  currentTempFParameter.textContent =
+    Math.round(weatherData.currentTempFarenheit) + "F";
+  const feelsLikeFParameter = document.querySelector(".feelsLikeF");
+  feelsLikeFParameter.textContent =
+    "FEELS LIKE: " + Math.round(weatherData.currentFeelsLikeFarenheit) + "F";
+  const windSpeedParameter = document.querySelector(".windSpeed");
+  windSpeedParameter.textContent =
+    "WIND: " + weatherData.currentWindSpeed + " MPH";
+  const humidityParameter = document.querySelector(".humidity");
+  humidityParameter.textContent =
+    "HUMIDITY: " + weatherData.currentHumidity + "%";
 }
 
 function handleSubmit(e) {
