@@ -97,6 +97,46 @@ body {
   white-space: nowrap;
 }
 
+.rightBox {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  padding-left: 20%;
+}
+
+.threeDayForecastWidget {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.forecastBox {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+}
+
+.threeDayForecastDay {
+  font-size: 1.5rem;
+  letter-spacing: 0.1rem;
+  white-space: nowrap;
+}
+
+.threeDayForecastHighF {
+  font-size: 3rem;
+  line-height: 3.5rem;
+  font-weight: 800;
+  letter-spacing: 0.1rem;
+  white-space: nowrap;
+}
+
+.threeDayForecastLowF {
+  font-size: 1.5rem;
+  line-height: 1.5rem;
+  font-weight: 400;
+  letter-spacing: 0.1rem;
+  white-space: nowrap;
+}
+
 footer .wrapper:after {
   height: 40px;
 }
