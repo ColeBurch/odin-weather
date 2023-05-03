@@ -58,13 +58,13 @@ body {
 }
 
 .condition {
-  font-size: 2.2rem;
+  font-size: 2rem;
   letter-spacing: 0.1rem;
   padding-left: 0.3rem;
 }
 
 .location {
-  font-size: 4rem;
+  font-size: 3.5rem;
   line-height: 3.5rem;
   margin-bottom: 1rem;
   font-weight: 800;
@@ -73,7 +73,7 @@ body {
 }
 
 .currentTempF {
-  font-size: 12rem;
+  font-size: 10rem;
   font-weight: 900;
   font-family: "Nunito", sans-serif;
   position: relative;
@@ -84,14 +84,14 @@ body {
   display: flex;
   flex-direction: column;
   border-left: 0.2rem solid rgba(255, 255, 255, 0.5);
-  height: 11rem;
+  height: 8rem;
   padding-left: 3.5rem;
   justify-content: space-between;
   margin-left: 30px;
 }
 
 .moreDetails {
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   font-weight: 900;
   letter-spacing: 0.1rem;
   white-space: nowrap;
