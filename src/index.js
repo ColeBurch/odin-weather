@@ -77,6 +77,39 @@ function createLayout() {
   const rightBox = document.createElement("div");
   rightBox.classList.add("rightBox");
 
+  const hourlyForecastWidget = document.createElement("div");
+  hourlyForecastWidget.classList.add("hourlyForecastWidget");
+
+  const footer = document.createElement("footer");
+
+  const footerText = document.createElement("div");
+  footerText.classList.add("footerText");
+  footerText.textContent = "Made by Cole Burch";
+
+  const github = new Image();
+  github.src = githubSVG;
+  github.classList.add("github");
+
+  header.appendChild(searchContainer);
+  searchContainer.appendChild(form);
+  form.appendChild(areaInput);
+  mainBody.appendChild(leftBox);
+  mainBody.appendChild(rightBox);
+  leftBox.appendChild(createCurrentDayWidget());
+  rightBox.appendChild(createThreeDayForecastWidget());
+  rightBox.appendChild(hourlyForecastWidget);
+  footer.appendChild(footerText);
+  footer.appendChild(github);
+  wrapper.appendChild(header);
+  wrapper.appendChild(mainBody);
+  wrapper.appendChild(footer);
+
+  form.addEventListener("submit", handleSubmit);
+
+  return wrapper;
+}
+
+function createCurrentDayWidget() {
   const currentDayWidget = document.createElement("div");
   currentDayWidget.classList.add("currentDayWidget");
 
@@ -118,6 +151,20 @@ function createLayout() {
   humidity.classList.add("moreDetails");
   humidity.textContent = "HUMIDITY: 10%";
 
+  currentDayWidget.appendChild(locationAndCondition);
+  locationAndCondition.appendChild(condition);
+  locationAndCondition.appendChild(location);
+  currentDayWidget.appendChild(currentWeatherDetails);
+  currentWeatherDetails.appendChild(currentTempF);
+  currentWeatherDetails.appendChild(currentWeatherMoreDetails);
+  currentWeatherMoreDetails.appendChild(feelsLikeF);
+  currentWeatherMoreDetails.appendChild(windSpeed);
+  currentWeatherMoreDetails.appendChild(humidity);
+
+  return currentDayWidget;
+}
+
+function createThreeDayForecastWidget() {
   const threeDayForecastWidget = document.createElement("div");
   threeDayForecastWidget.classList.add("threeDayForecastWidget");
 
@@ -190,35 +237,6 @@ function createLayout() {
   imagePointer = getImagePointer("119");
   inTwoDaysWeatherIcon.src = imagePointer;
 
-  const hourlyForecastWidget = document.createElement("div");
-  hourlyForecastWidget.classList.add("hourlyForecastWidget");
-
-  const footer = document.createElement("footer");
-
-  const footerText = document.createElement("div");
-  footerText.classList.add("footerText");
-  footerText.textContent = "Made by Cole Burch";
-
-  const github = new Image();
-  github.src = githubSVG;
-  github.classList.add("github");
-
-  header.appendChild(searchContainer);
-  searchContainer.appendChild(form);
-  form.appendChild(areaInput);
-  mainBody.appendChild(leftBox);
-  mainBody.appendChild(rightBox);
-  leftBox.appendChild(currentDayWidget);
-  currentDayWidget.appendChild(locationAndCondition);
-  locationAndCondition.appendChild(condition);
-  locationAndCondition.appendChild(location);
-  currentDayWidget.appendChild(currentWeatherDetails);
-  currentWeatherDetails.appendChild(currentTempF);
-  currentWeatherDetails.appendChild(currentWeatherMoreDetails);
-  currentWeatherMoreDetails.appendChild(feelsLikeF);
-  currentWeatherMoreDetails.appendChild(windSpeed);
-  currentWeatherMoreDetails.appendChild(humidity);
-  rightBox.appendChild(threeDayForecastWidget);
   threeDayForecastWidget.appendChild(todaysForecast);
   threeDayForecastWidget.appendChild(tomorrowsForecast);
   threeDayForecastWidget.appendChild(inTwoDaysForecast);
@@ -234,16 +252,8 @@ function createLayout() {
   inTwoDaysForecast.appendChild(inTwoDaysHighF);
   inTwoDaysForecast.appendChild(inTwoDaysLowF);
   inTwoDaysForecast.appendChild(inTwoDaysWeatherIcon);
-  rightBox.appendChild(hourlyForecastWidget);
-  footer.appendChild(footerText);
-  footer.appendChild(github);
-  wrapper.appendChild(header);
-  wrapper.appendChild(mainBody);
-  wrapper.appendChild(footer);
 
-  form.addEventListener("submit", handleSubmit);
-
-  return wrapper;
+  return threeDayForecastWidget;
 }
 
 async function getWeather(location) {
@@ -253,6 +263,7 @@ async function getWeather(location) {
     "&days=3&aqi=no&alerts=no";
   const apiResponse = await fetch(url);
   const weatherData = await apiResponse.json();
+  console.log(weatherData);
 
   const locationName = weatherData["location"]["name"];
   const regionName = weatherData["location"]["region"];
@@ -341,7 +352,6 @@ function updateDashboard(weatherData) {
     Math.round(weatherData.currentLowFarenheit) + "F";
   const todayWeatherIconParameter = document.querySelector(".todayWeatherIcon");
   let imageNumber = weatherData.currentConditionIcon.slice(39, 42);
-  console.log(imageNumber);
   todayWeatherIconParameter.src = getImagePointer(imageNumber);
   const tomorrowHighFParameter = document.querySelector(".tomorrowHighF");
   tomorrowHighFParameter.textContent =
@@ -353,7 +363,6 @@ function updateDashboard(weatherData) {
     ".tomorrowWeatherIcon"
   );
   imageNumber = weatherData.tomorrowConditionIcon.slice(39, 42);
-  console.log(imageNumber);
   tomorrowWeatherIconParameter.src = getImagePointer(imageNumber);
   const twoDayHighFParameter = document.querySelector(".inTwoDaysHighF");
   twoDayHighFParameter.textContent =
@@ -365,7 +374,6 @@ function updateDashboard(weatherData) {
     ".inTwoDaysWeatherIcon"
   );
   imageNumber = weatherData.twoDayConditionIcon.slice(39, 42);
-  console.log(imageNumber);
   twoDayWeatherIconParameter.src = getImagePointer(imageNumber);
 }
 
