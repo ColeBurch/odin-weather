@@ -257,9 +257,13 @@ function createHourlyForecastWidget() {
   const hourlyForecastWidget = document.createElement("div");
   hourlyForecastWidget.classList.add("hourlyForecastWidget");
 
+  const hourlyForecastIndexZero = document.createElement("div");
+  hourlyForecastIndexZero.setAttribute("id", "hourlyForecastIndexZero");
+  hourlyForecastIndexZero.classList.add("hourlyForecastIndex");
+  hourlyForecastIndexZero.classList.add("active");
+
   const zeroHourForecast = document.createElement("div");
   zeroHourForecast.classList.add("hourlyForecastBox");
-  zeroHourForecast.classList.add("active");
   zeroHourForecast.setAttribute("id", "zeroHourForecast");
 
   const zeroHour = document.createElement("div");
@@ -280,7 +284,6 @@ function createHourlyForecastWidget() {
 
   const oneHourForecast = document.createElement("div");
   oneHourForecast.classList.add("hourlyForecastBox");
-  oneHourForecast.classList.add("active");
   oneHourForecast.setAttribute("id", "oneHourForecast");
 
   const oneHour = document.createElement("div");
@@ -301,7 +304,6 @@ function createHourlyForecastWidget() {
 
   const twoHourForecast = document.createElement("div");
   twoHourForecast.classList.add("hourlyForecastBox");
-  twoHourForecast.classList.add("active");
   twoHourForecast.setAttribute("id", "twoHourForecast");
 
   const twoHour = document.createElement("div");
@@ -322,7 +324,6 @@ function createHourlyForecastWidget() {
 
   const threeHourForecast = document.createElement("div");
   threeHourForecast.classList.add("hourlyForecastBox");
-  threeHourForecast.classList.add("active");
   threeHourForecast.setAttribute("id", "threeHourForecast");
 
   const threeHour = document.createElement("div");
@@ -340,6 +341,10 @@ function createHourlyForecastWidget() {
   threeHourWeatherIcon.setAttribute("id", "threeHourWeatherIcon");
   imagePointer = getImagePointer("122");
   threeHourWeatherIcon.src = imagePointer;
+
+  const hourlyForecastIndexOne = document.createElement("div");
+  hourlyForecastIndexOne.setAttribute("id", "hourlyForecastIndexOne");
+  hourlyForecastIndexOne.classList.add("hourlyForecastIndex");
 
   const fourHourForecast = document.createElement("div");
   fourHourForecast.classList.add("hourlyForecastBox");
@@ -421,6 +426,10 @@ function createHourlyForecastWidget() {
   imagePointer = getImagePointer("227");
   sevenHourWeatherIcon.src = imagePointer;
 
+  const hourlyForecastIndexTwo = document.createElement("div");
+  hourlyForecastIndexTwo.setAttribute("id", "hourlyForecastIndexTwo");
+  hourlyForecastIndexTwo.classList.add("hourlyForecastIndex");
+
   const eightHourForecast = document.createElement("div");
   eightHourForecast.classList.add("hourlyForecastBox");
   eightHourForecast.setAttribute("id", "eightHourForecast");
@@ -501,18 +510,21 @@ function createHourlyForecastWidget() {
   imagePointer = getImagePointer("356");
   elevenHourWeatherIcon.src = imagePointer;
 
-  hourlyForecastWidget.appendChild(zeroHourForecast);
-  hourlyForecastWidget.appendChild(oneHourForecast);
-  hourlyForecastWidget.appendChild(twoHourForecast);
-  hourlyForecastWidget.appendChild(threeHourForecast);
-  hourlyForecastWidget.appendChild(fourHourForecast);
-  hourlyForecastWidget.appendChild(fiveHourForecast);
-  hourlyForecastWidget.appendChild(sixHourForecast);
-  hourlyForecastWidget.appendChild(sevenHourForecast);
-  hourlyForecastWidget.appendChild(eightHourForecast);
-  hourlyForecastWidget.appendChild(nineHourForecast);
-  hourlyForecastWidget.appendChild(tenHourForecast);
-  hourlyForecastWidget.appendChild(elevenHourForecast);
+  hourlyForecastWidget.appendChild(hourlyForecastIndexZero);
+  hourlyForecastWidget.appendChild(hourlyForecastIndexOne);
+  hourlyForecastWidget.appendChild(hourlyForecastIndexTwo);
+  hourlyForecastIndexZero.appendChild(zeroHourForecast);
+  hourlyForecastIndexZero.appendChild(oneHourForecast);
+  hourlyForecastIndexZero.appendChild(twoHourForecast);
+  hourlyForecastIndexZero.appendChild(threeHourForecast);
+  hourlyForecastIndexOne.appendChild(fourHourForecast);
+  hourlyForecastIndexOne.appendChild(fiveHourForecast);
+  hourlyForecastIndexOne.appendChild(sixHourForecast);
+  hourlyForecastIndexOne.appendChild(sevenHourForecast);
+  hourlyForecastIndexTwo.appendChild(eightHourForecast);
+  hourlyForecastIndexTwo.appendChild(nineHourForecast);
+  hourlyForecastIndexTwo.appendChild(tenHourForecast);
+  hourlyForecastIndexTwo.appendChild(elevenHourForecast);
   zeroHourForecast.appendChild(zeroHour);
   zeroHourForecast.appendChild(zeroHourTempF);
   zeroHourForecast.appendChild(zeroHourWeatherIcon);

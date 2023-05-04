@@ -11,7 +11,7 @@ body {
   min-height: 100%;
   margin-bottom: -40px;
   display: grid;
-  grid-template-rows: 80px 1fr;
+  grid-template-rows: 1px 1fr;
   background-color: #7c7a7a;
 }
 
@@ -50,6 +50,7 @@ body {
   display: grid;
   grid-template-rows: 1fr 2fr;
   margin-left: 10%;
+  padding-top: 20%;
 }
 
 .currentWeatherDetails {
@@ -101,13 +102,13 @@ body {
   display: grid;
   grid-template-rows: 50% 50%;
   padding-left: 20%;
+  gap: 25%;
 }
 
 .threeDayForecastWidget {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   align-items: center;
-  height: 150%;
 }
 
 .forecastBox {
@@ -141,9 +142,22 @@ body {
 
 .hourlyForecastWidget {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr;
   justify-content: center;
   align-items: center;
+}
+
+.hourlyForecastIndex {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  align-items: center;
+  grid-area: 1 / 1 / 1 / 1;
+  transform: translate(0, 0) scale(0);
+  transition: 1s ease-in-out;
+}
+
+.hourlyForecastIndex.active {
+  transform: translate(0, 0) scale(1);
 }
 
 .hourlyForecastBox {
@@ -151,16 +165,20 @@ body {
   flex-direction: column;
   gap: 10px;
   align-items: center;
-  transform: translate(0, 0) scale(0);
-  transition: 1s ease-in-out;
-}
-
-.hourlyForecastBox.active {
-  transform: translate(0, 0) scale(1);
 }
 
 .hourlyForecastHour {
+  font-size: 1.8rem;
+  line-height: 1.5rem;
+  font-weight: 500;
+  letter-spacing: 0.1rem;
+  white-space: nowrap;
+  margin-bottom: 1rem;
+}
+
+.hourlyForecastTempF {
   font-size: 1.5rem;
+  font-weight: 400;
   letter-spacing: 0.1rem;
   white-space: nowrap;
 }
