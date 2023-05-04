@@ -130,14 +130,17 @@ function createLayout() {
 
   const todayHighF = document.createElement("div");
   todayHighF.classList.add("threeDayForecastHighF");
+  todayHighF.classList.add("todayHighF");
   todayHighF.textContent = "60F";
 
   const todayLowF = document.createElement("div");
   todayLowF.classList.add("threeDayForecastLowF");
+  todayLowF.classList.add("todayLowF");
   todayLowF.textContent = "50F";
 
   const todayWeatherIcon = document.createElement("img");
   todayWeatherIcon.classList.add("threeDayForecastIcon");
+  todayWeatherIcon.classList.add("todayWeatherIcon");
   let imagePointer = getImagePointer("113");
   todayWeatherIcon.src = imagePointer;
 
@@ -150,14 +153,17 @@ function createLayout() {
 
   const tomorrowHighF = document.createElement("div");
   tomorrowHighF.classList.add("threeDayForecastHighF");
+  tomorrowHighF.classList.add("tomorrowHighF");
   tomorrowHighF.textContent = "61F";
 
   const tomorrowLowF = document.createElement("div");
   tomorrowLowF.classList.add("threeDayForecastLowF");
+  tomorrowLowF.classList.add("tomorrowLowF");
   tomorrowLowF.textContent = "51F";
 
   const tomorrowWeatherIcon = document.createElement("img");
   tomorrowWeatherIcon.classList.add("threeDayForecastIcon");
+  tomorrowWeatherIcon.classList.add("tomorrowWeatherIcon");
   imagePointer = getImagePointer("116");
   tomorrowWeatherIcon.src = imagePointer;
 
@@ -170,14 +176,17 @@ function createLayout() {
 
   const inTwoDaysHighF = document.createElement("div");
   inTwoDaysHighF.classList.add("threeDayForecastHighF");
+  inTwoDaysHighF.classList.add("inTwoDaysHighF");
   inTwoDaysHighF.textContent = "62F";
 
   const inTwoDaysLowF = document.createElement("div");
   inTwoDaysLowF.classList.add("threeDayForecastLowF");
+  inTwoDaysLowF.classList.add("inTwoDaysLowF");
   inTwoDaysLowF.textContent = "52F";
 
   const inTwoDaysWeatherIcon = document.createElement("img");
   inTwoDaysWeatherIcon.classList.add("threeDayForecastIcon");
+  inTwoDaysWeatherIcon.classList.add("inTwoDaysWeatherIcon");
   imagePointer = getImagePointer("119");
   inTwoDaysWeatherIcon.src = imagePointer;
 
@@ -324,6 +333,40 @@ function updateDashboard(weatherData) {
   const humidityParameter = document.querySelector(".humidity");
   humidityParameter.textContent =
     "HUMIDITY: " + weatherData.currentHumidity + "%";
+  const todayHighFParameter = document.querySelector(".todayHighF");
+  todayHighFParameter.textContent =
+    Math.round(weatherData.currentHighFarenheit) + "F";
+  const todayLowFParameter = document.querySelector(".todayLowF");
+  todayLowFParameter.textContent =
+    Math.round(weatherData.currentLowFarenheit) + "F";
+  const todayWeatherIconParameter = document.querySelector(".todayWeatherIcon");
+  let imageNumber = weatherData.currentConditionIcon.slice(39, 42);
+  console.log(imageNumber);
+  todayWeatherIconParameter.src = getImagePointer(imageNumber);
+  const tomorrowHighFParameter = document.querySelector(".tomorrowHighF");
+  tomorrowHighFParameter.textContent =
+    Math.round(weatherData.tomorrowHighFarenheit) + "F";
+  const tomorrowLowFParameter = document.querySelector(".tomorrowLowF");
+  tomorrowLowFParameter.textContent =
+    Math.round(weatherData.tomorrowLowFarenheit) + "F";
+  const tomorrowWeatherIconParameter = document.querySelector(
+    ".tomorrowWeatherIcon"
+  );
+  imageNumber = weatherData.tomorrowConditionIcon.slice(39, 42);
+  console.log(imageNumber);
+  tomorrowWeatherIconParameter.src = getImagePointer(imageNumber);
+  const twoDayHighFParameter = document.querySelector(".inTwoDaysHighF");
+  twoDayHighFParameter.textContent =
+    Math.round(weatherData.twoDayHighFarenheit) + "F";
+  const twoDayLowFParameter = document.querySelector(".inTwoDaysLowF");
+  twoDayLowFParameter.textContent =
+    Math.round(weatherData.twoDayLowFarenheit) + "F";
+  const twoDayWeatherIconParameter = document.querySelector(
+    ".inTwoDaysWeatherIcon"
+  );
+  imageNumber = weatherData.twoDayConditionIcon.slice(39, 42);
+  console.log(imageNumber);
+  twoDayWeatherIconParameter.src = getImagePointer(imageNumber);
 }
 
 function handleSubmit(e) {
