@@ -77,9 +77,6 @@ function createLayout() {
   const rightBox = document.createElement("div");
   rightBox.classList.add("rightBox");
 
-  const hourlyForecastWidget = document.createElement("div");
-  hourlyForecastWidget.classList.add("hourlyForecastWidget");
-
   const footer = document.createElement("footer");
 
   const footerText = document.createElement("div");
@@ -97,7 +94,7 @@ function createLayout() {
   mainBody.appendChild(rightBox);
   leftBox.appendChild(createCurrentDayWidget());
   rightBox.appendChild(createThreeDayForecastWidget());
-  rightBox.appendChild(hourlyForecastWidget);
+  rightBox.appendChild(createHourlyForecastWidget());
   footer.appendChild(footerText);
   footer.appendChild(github);
   wrapper.appendChild(header);
@@ -254,6 +251,306 @@ function createThreeDayForecastWidget() {
   inTwoDaysForecast.appendChild(inTwoDaysWeatherIcon);
 
   return threeDayForecastWidget;
+}
+
+function createHourlyForecastWidget() {
+  const hourlyForecastWidget = document.createElement("div");
+  hourlyForecastWidget.classList.add("hourlyForecastWidget");
+
+  const zeroHourForecast = document.createElement("div");
+  zeroHourForecast.classList.add("hourlyForecastBox");
+  zeroHourForecast.classList.add("active");
+  zeroHourForecast.setAttribute("id", "zeroHourForecast");
+
+  const zeroHour = document.createElement("div");
+  zeroHour.classList.add("hourlyForecastHour");
+  zeroHour.setAttribute("id", "zeroHour");
+  zeroHour.textContent = "Now";
+
+  const zeroHourTempF = document.createElement("div");
+  zeroHourTempF.classList.add("hourlyForecastTempF");
+  zeroHourTempF.setAttribute("id", "zeroHourTempF");
+  zeroHourTempF.textContent = "60F";
+
+  const zeroHourWeatherIcon = document.createElement("img");
+  zeroHourWeatherIcon.classList.add("hourlyForecastIcon");
+  zeroHourWeatherIcon.setAttribute("id", "zeroHourWeatherIcon");
+  let imagePointer = getImagePointer("113");
+  zeroHourWeatherIcon.src = imagePointer;
+
+  const oneHourForecast = document.createElement("div");
+  oneHourForecast.classList.add("hourlyForecastBox");
+  oneHourForecast.classList.add("active");
+  oneHourForecast.setAttribute("id", "oneHourForecast");
+
+  const oneHour = document.createElement("div");
+  oneHour.classList.add("hourlyForecastHour");
+  oneHour.setAttribute("id", "oneHour");
+  oneHour.textContent = "1";
+
+  const oneHourTempF = document.createElement("div");
+  oneHourTempF.classList.add("hourlyForecastTempF");
+  oneHourTempF.setAttribute("id", "oneHourTempF");
+  oneHourTempF.textContent = "61F";
+
+  const oneHourWeatherIcon = document.createElement("img");
+  oneHourWeatherIcon.classList.add("hourlyForecastIcon");
+  oneHourWeatherIcon.setAttribute("id", "oneHourWeatherIcon");
+  imagePointer = getImagePointer("116");
+  oneHourWeatherIcon.src = imagePointer;
+
+  const twoHourForecast = document.createElement("div");
+  twoHourForecast.classList.add("hourlyForecastBox");
+  twoHourForecast.classList.add("active");
+  twoHourForecast.setAttribute("id", "twoHourForecast");
+
+  const twoHour = document.createElement("div");
+  twoHour.classList.add("hourlyForecastHour");
+  twoHour.setAttribute("id", "twoHour");
+  twoHour.textContent = "2";
+
+  const twoHourTempF = document.createElement("div");
+  twoHourTempF.classList.add("hourlyForecastTempF");
+  twoHourTempF.setAttribute("id", "twoHourTempF");
+  twoHourTempF.textContent = "62F";
+
+  const twoHourWeatherIcon = document.createElement("img");
+  twoHourWeatherIcon.classList.add("hourlyForecastIcon");
+  twoHourWeatherIcon.setAttribute("id", "twoHourWeatherIcon");
+  imagePointer = getImagePointer("119");
+  twoHourWeatherIcon.src = imagePointer;
+
+  const threeHourForecast = document.createElement("div");
+  threeHourForecast.classList.add("hourlyForecastBox");
+  threeHourForecast.classList.add("active");
+  threeHourForecast.setAttribute("id", "threeHourForecast");
+
+  const threeHour = document.createElement("div");
+  threeHour.classList.add("hourlyForecastHour");
+  threeHour.setAttribute("id", "threeHour");
+  threeHour.textContent = "3";
+
+  const threeHourTempF = document.createElement("div");
+  threeHourTempF.classList.add("hourlyForecastTempF");
+  threeHourTempF.setAttribute("id", "threeHourTempF");
+  threeHourTempF.textContent = "63F";
+
+  const threeHourWeatherIcon = document.createElement("img");
+  threeHourWeatherIcon.classList.add("hourlyForecastIcon");
+  threeHourWeatherIcon.setAttribute("id", "threeHourWeatherIcon");
+  imagePointer = getImagePointer("122");
+  threeHourWeatherIcon.src = imagePointer;
+
+  const fourHourForecast = document.createElement("div");
+  fourHourForecast.classList.add("hourlyForecastBox");
+  fourHourForecast.setAttribute("id", "fourHourForecast");
+
+  const fourHour = document.createElement("div");
+  fourHour.classList.add("hourlyForecastHour");
+  fourHour.setAttribute("id", "fourHour");
+  fourHour.textContent = "4";
+
+  const fourHourTempF = document.createElement("div");
+  fourHourTempF.classList.add("hourlyForecastTempF");
+  fourHourTempF.setAttribute("id", "fourHourTempF");
+  fourHourTempF.textContent = "64F";
+
+  const fourHourWeatherIcon = document.createElement("img");
+  fourHourWeatherIcon.classList.add("hourlyForecastIcon");
+  fourHourWeatherIcon.setAttribute("id", "fourHourWeatherIcon");
+  imagePointer = getImagePointer("143");
+  fourHourWeatherIcon.src = imagePointer;
+
+  const fiveHourForecast = document.createElement("div");
+  fiveHourForecast.classList.add("hourlyForecastBox");
+  fiveHourForecast.setAttribute("id", "fiveHourForecast");
+
+  const fiveHour = document.createElement("div");
+  fiveHour.classList.add("hourlyForecastHour");
+  fiveHour.setAttribute("id", "fiveHour");
+  fiveHour.textContent = "5";
+
+  const fiveHourTempF = document.createElement("div");
+  fiveHourTempF.classList.add("hourlyForecastTempF");
+  fiveHourTempF.setAttribute("id", "fiveHourTempF");
+  fiveHourTempF.textContent = "65F";
+
+  const fiveHourWeatherIcon = document.createElement("img");
+  fiveHourWeatherIcon.classList.add("hourlyForecastIcon");
+  fiveHourWeatherIcon.setAttribute("id", "fiveHourWeatherIcon");
+  imagePointer = getImagePointer("176");
+  fiveHourWeatherIcon.src = imagePointer;
+
+  const sixHourForecast = document.createElement("div");
+  sixHourForecast.classList.add("hourlyForecastBox");
+  sixHourForecast.setAttribute("id", "sixHourForecast");
+
+  const sixHour = document.createElement("div");
+  sixHour.classList.add("hourlyForecastHour");
+  sixHour.setAttribute("id", "sixHour");
+  sixHour.textContent = "6";
+
+  const sixHourTempF = document.createElement("div");
+  sixHourTempF.classList.add("hourlyForecastTempF");
+  sixHourTempF.setAttribute("id", "sixHourTempF");
+  sixHourTempF.textContent = "66F";
+
+  const sixHourWeatherIcon = document.createElement("img");
+  sixHourWeatherIcon.classList.add("hourlyForecastIcon");
+  sixHourWeatherIcon.setAttribute("id", "sixHourWeatherIcon");
+  imagePointer = getImagePointer("200");
+  sixHourWeatherIcon.src = imagePointer;
+
+  const sevenHourForecast = document.createElement("div");
+  sevenHourForecast.classList.add("hourlyForecastBox");
+  sevenHourForecast.setAttribute("id", "sevenHourForecast");
+
+  const sevenHour = document.createElement("div");
+  sevenHour.classList.add("hourlyForecastHour");
+  sevenHour.setAttribute("id", "sevenHour");
+  sevenHour.textContent = "7";
+
+  const sevenHourTempF = document.createElement("div");
+  sevenHourTempF.classList.add("hourlyForecastTempF");
+  sevenHourTempF.setAttribute("id", "sevenHourTempF");
+  sevenHourTempF.textContent = "67F";
+
+  const sevenHourWeatherIcon = document.createElement("img");
+  sevenHourWeatherIcon.classList.add("hourlyForecastIcon");
+  sevenHourWeatherIcon.setAttribute("id", "sevenHourWeatherIcon");
+  imagePointer = getImagePointer("227");
+  sevenHourWeatherIcon.src = imagePointer;
+
+  const eightHourForecast = document.createElement("div");
+  eightHourForecast.classList.add("hourlyForecastBox");
+  eightHourForecast.setAttribute("id", "eightHourForecast");
+
+  const eightHour = document.createElement("div");
+  eightHour.classList.add("hourlyForecastHour");
+  eightHour.setAttribute("id", "eightHour");
+  eightHour.textContent = "8";
+
+  const eightHourTempF = document.createElement("div");
+  eightHourTempF.classList.add("hourlyForecastTempF");
+  eightHourTempF.setAttribute("id", "eightHourTempF");
+  eightHourTempF.textContent = "68F";
+
+  const eightHourWeatherIcon = document.createElement("img");
+  eightHourWeatherIcon.classList.add("hourlyForecastIcon");
+  eightHourWeatherIcon.setAttribute("id", "eightHourWeatherIcon");
+  imagePointer = getImagePointer("248");
+  eightHourWeatherIcon.src = imagePointer;
+
+  const nineHourForecast = document.createElement("div");
+  nineHourForecast.classList.add("hourlyForecastBox");
+  nineHourForecast.setAttribute("id", "nineHourForecast");
+
+  const nineHour = document.createElement("div");
+  nineHour.classList.add("hourlyForecastHour");
+  nineHour.setAttribute("id", "nineHour");
+  nineHour.textContent = "9";
+
+  const nineHourTempF = document.createElement("div");
+  nineHourTempF.classList.add("hourlyForecastTempF");
+  nineHourTempF.setAttribute("id", "nineHourTempF");
+  nineHourTempF.textContent = "69F";
+
+  const nineHourWeatherIcon = document.createElement("img");
+  nineHourWeatherIcon.classList.add("hourlyForecastIcon");
+  nineHourWeatherIcon.setAttribute("id", "nineHourWeatherIcon");
+  imagePointer = getImagePointer("296");
+  nineHourWeatherIcon.src = imagePointer;
+
+  const tenHourForecast = document.createElement("div");
+  tenHourForecast.classList.add("hourlyForecastBox");
+  tenHourForecast.setAttribute("id", "tenHourForecast");
+
+  const tenHour = document.createElement("div");
+  tenHour.classList.add("hourlyForecastHour");
+  tenHour.setAttribute("id", "tenHour");
+  tenHour.textContent = "10";
+
+  const tenHourTempF = document.createElement("div");
+  tenHourTempF.classList.add("hourlyForecastTempF");
+  tenHourTempF.setAttribute("id", "tenHourTempF");
+  tenHourTempF.textContent = "70F";
+
+  const tenHourWeatherIcon = document.createElement("img");
+  tenHourWeatherIcon.classList.add("hourlyForecastIcon");
+  tenHourWeatherIcon.setAttribute("id", "tenHourWeatherIcon");
+  imagePointer = getImagePointer("353");
+  tenHourWeatherIcon.src = imagePointer;
+
+  const elevenHourForecast = document.createElement("div");
+  elevenHourForecast.classList.add("hourlyForecastBox");
+  elevenHourForecast.setAttribute("id", "elevenHourForecast");
+
+  const elevenHour = document.createElement("div");
+  elevenHour.classList.add("hourlyForecastHour");
+  elevenHour.setAttribute("id", "elevenHour");
+  elevenHour.textContent = "11";
+
+  const elevenHourTempF = document.createElement("div");
+  elevenHourTempF.classList.add("hourlyForecastTempF");
+  elevenHourTempF.setAttribute("id", "elevenHourTempF");
+  elevenHourTempF.textContent = "71F";
+
+  const elevenHourWeatherIcon = document.createElement("img");
+  elevenHourWeatherIcon.classList.add("hourlyForecastIcon");
+  elevenHourWeatherIcon.setAttribute("id", "elevenHourWeatherIcon");
+  imagePointer = getImagePointer("356");
+  elevenHourWeatherIcon.src = imagePointer;
+
+  hourlyForecastWidget.appendChild(zeroHourForecast);
+  hourlyForecastWidget.appendChild(oneHourForecast);
+  hourlyForecastWidget.appendChild(twoHourForecast);
+  hourlyForecastWidget.appendChild(threeHourForecast);
+  hourlyForecastWidget.appendChild(fourHourForecast);
+  hourlyForecastWidget.appendChild(fiveHourForecast);
+  hourlyForecastWidget.appendChild(sixHourForecast);
+  hourlyForecastWidget.appendChild(sevenHourForecast);
+  hourlyForecastWidget.appendChild(eightHourForecast);
+  hourlyForecastWidget.appendChild(nineHourForecast);
+  hourlyForecastWidget.appendChild(tenHourForecast);
+  hourlyForecastWidget.appendChild(elevenHourForecast);
+  zeroHourForecast.appendChild(zeroHour);
+  zeroHourForecast.appendChild(zeroHourTempF);
+  zeroHourForecast.appendChild(zeroHourWeatherIcon);
+  oneHourForecast.appendChild(oneHour);
+  oneHourForecast.appendChild(oneHourTempF);
+  oneHourForecast.appendChild(oneHourWeatherIcon);
+  twoHourForecast.appendChild(twoHour);
+  twoHourForecast.appendChild(twoHourTempF);
+  twoHourForecast.appendChild(twoHourWeatherIcon);
+  threeHourForecast.appendChild(threeHour);
+  threeHourForecast.appendChild(threeHourTempF);
+  threeHourForecast.appendChild(threeHourWeatherIcon);
+  fourHourForecast.appendChild(fourHour);
+  fourHourForecast.appendChild(fourHourTempF);
+  fourHourForecast.appendChild(fourHourWeatherIcon);
+  fiveHourForecast.appendChild(fiveHour);
+  fiveHourForecast.appendChild(fiveHourTempF);
+  fiveHourForecast.appendChild(fiveHourWeatherIcon);
+  sixHourForecast.appendChild(sixHour);
+  sixHourForecast.appendChild(sixHourTempF);
+  sixHourForecast.appendChild(sixHourWeatherIcon);
+  sevenHourForecast.appendChild(sevenHour);
+  sevenHourForecast.appendChild(sevenHourTempF);
+  sevenHourForecast.appendChild(sevenHourWeatherIcon);
+  eightHourForecast.appendChild(eightHour);
+  eightHourForecast.appendChild(eightHourTempF);
+  eightHourForecast.appendChild(eightHourWeatherIcon);
+  nineHourForecast.appendChild(nineHour);
+  nineHourForecast.appendChild(nineHourTempF);
+  nineHourForecast.appendChild(nineHourWeatherIcon);
+  tenHourForecast.appendChild(tenHour);
+  tenHourForecast.appendChild(tenHourTempF);
+  tenHourForecast.appendChild(tenHourWeatherIcon);
+  elevenHourForecast.appendChild(elevenHour);
+  elevenHourForecast.appendChild(elevenHourTempF);
+  elevenHourForecast.appendChild(elevenHourWeatherIcon);
+
+  return hourlyForecastWidget;
 }
 
 async function getWeather(location) {
