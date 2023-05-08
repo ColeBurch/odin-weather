@@ -1,53 +1,101 @@
 import "./style.css";
 import githubSVG from "./images/github.svg";
-import I113 from "./images/weather/64x64/day/113.png";
-import I116 from "./images/weather/64x64/day/116.png";
-import I119 from "./images/weather/64x64/day/119.png";
-import I122 from "./images/weather/64x64/day/122.png";
-import I143 from "./images/weather/64x64/day/143.png";
-import I176 from "./images/weather/64x64/day/176.png";
-import I179 from "./images/weather/64x64/day/179.png";
-import I182 from "./images/weather/64x64/day/182.png";
-import I185 from "./images/weather/64x64/day/185.png";
-import I200 from "./images/weather/64x64/day/200.png";
-import I227 from "./images/weather/64x64/day/227.png";
-import I230 from "./images/weather/64x64/day/230.png";
-import I248 from "./images/weather/64x64/day/248.png";
-import I260 from "./images/weather/64x64/day/260.png";
-import I263 from "./images/weather/64x64/day/263.png";
-import I266 from "./images/weather/64x64/day/266.png";
-import I281 from "./images/weather/64x64/day/281.png";
-import I284 from "./images/weather/64x64/day/284.png";
-import I293 from "./images/weather/64x64/day/293.png";
-import I296 from "./images/weather/64x64/day/296.png";
-import I299 from "./images/weather/64x64/day/299.png";
-import I302 from "./images/weather/64x64/day/302.png";
-import I305 from "./images/weather/64x64/day/305.png";
-import I308 from "./images/weather/64x64/day/308.png";
-import I311 from "./images/weather/64x64/day/311.png";
-import I314 from "./images/weather/64x64/day/314.png";
-import I317 from "./images/weather/64x64/day/317.png";
-import I320 from "./images/weather/64x64/day/320.png";
-import I323 from "./images/weather/64x64/day/323.png";
-import I326 from "./images/weather/64x64/day/326.png";
-import I329 from "./images/weather/64x64/day/329.png";
-import I332 from "./images/weather/64x64/day/332.png";
-import I335 from "./images/weather/64x64/day/335.png";
-import I338 from "./images/weather/64x64/day/338.png";
-import I350 from "./images/weather/64x64/day/350.png";
-import I353 from "./images/weather/64x64/day/353.png";
-import I356 from "./images/weather/64x64/day/356.png";
-import I359 from "./images/weather/64x64/day/359.png";
-import I362 from "./images/weather/64x64/day/362.png";
-import I365 from "./images/weather/64x64/day/365.png";
-import I368 from "./images/weather/64x64/day/368.png";
-import I371 from "./images/weather/64x64/day/371.png";
-import I374 from "./images/weather/64x64/day/374.png";
-import I377 from "./images/weather/64x64/day/377.png";
-import I386 from "./images/weather/64x64/day/386.png";
-import I389 from "./images/weather/64x64/day/389.png";
-import I392 from "./images/weather/64x64/day/392.png";
-import I395 from "./images/weather/64x64/day/395.png";
+import D113 from "./images/weather/64x64/day/113.png";
+import D116 from "./images/weather/64x64/day/116.png";
+import D119 from "./images/weather/64x64/day/119.png";
+import D122 from "./images/weather/64x64/day/122.png";
+import D143 from "./images/weather/64x64/day/143.png";
+import D176 from "./images/weather/64x64/day/176.png";
+import D179 from "./images/weather/64x64/day/179.png";
+import D182 from "./images/weather/64x64/day/182.png";
+import D185 from "./images/weather/64x64/day/185.png";
+import D200 from "./images/weather/64x64/day/200.png";
+import D227 from "./images/weather/64x64/day/227.png";
+import D230 from "./images/weather/64x64/day/230.png";
+import D248 from "./images/weather/64x64/day/248.png";
+import D260 from "./images/weather/64x64/day/260.png";
+import D263 from "./images/weather/64x64/day/263.png";
+import D266 from "./images/weather/64x64/day/266.png";
+import D281 from "./images/weather/64x64/day/281.png";
+import D284 from "./images/weather/64x64/day/284.png";
+import D293 from "./images/weather/64x64/day/293.png";
+import D296 from "./images/weather/64x64/day/296.png";
+import D299 from "./images/weather/64x64/day/299.png";
+import D302 from "./images/weather/64x64/day/302.png";
+import D305 from "./images/weather/64x64/day/305.png";
+import D308 from "./images/weather/64x64/day/308.png";
+import D311 from "./images/weather/64x64/day/311.png";
+import D314 from "./images/weather/64x64/day/314.png";
+import D317 from "./images/weather/64x64/day/317.png";
+import D320 from "./images/weather/64x64/day/320.png";
+import D323 from "./images/weather/64x64/day/323.png";
+import D326 from "./images/weather/64x64/day/326.png";
+import D329 from "./images/weather/64x64/day/329.png";
+import D332 from "./images/weather/64x64/day/332.png";
+import D335 from "./images/weather/64x64/day/335.png";
+import D338 from "./images/weather/64x64/day/338.png";
+import D350 from "./images/weather/64x64/day/350.png";
+import D353 from "./images/weather/64x64/day/353.png";
+import D356 from "./images/weather/64x64/day/356.png";
+import D359 from "./images/weather/64x64/day/359.png";
+import D362 from "./images/weather/64x64/day/362.png";
+import D365 from "./images/weather/64x64/day/365.png";
+import D368 from "./images/weather/64x64/day/368.png";
+import D371 from "./images/weather/64x64/day/371.png";
+import D374 from "./images/weather/64x64/day/374.png";
+import D377 from "./images/weather/64x64/day/377.png";
+import D386 from "./images/weather/64x64/day/386.png";
+import D389 from "./images/weather/64x64/day/389.png";
+import D392 from "./images/weather/64x64/day/392.png";
+import D395 from "./images/weather/64x64/day/395.png";
+import N113 from "./images/weather/64x64/night/113.png";
+import N116 from "./images/weather/64x64/night/116.png";
+import N119 from "./images/weather/64x64/night/119.png";
+import N122 from "./images/weather/64x64/night/122.png";
+import N143 from "./images/weather/64x64/night/143.png";
+import N176 from "./images/weather/64x64/night/176.png";
+import N179 from "./images/weather/64x64/night/179.png";
+import N182 from "./images/weather/64x64/night/182.png";
+import N185 from "./images/weather/64x64/night/185.png";
+import N200 from "./images/weather/64x64/night/200.png";
+import N227 from "./images/weather/64x64/night/227.png";
+import N230 from "./images/weather/64x64/night/230.png";
+import N248 from "./images/weather/64x64/night/248.png";
+import N260 from "./images/weather/64x64/night/260.png";
+import N263 from "./images/weather/64x64/night/263.png";
+import N266 from "./images/weather/64x64/night/266.png";
+import N281 from "./images/weather/64x64/night/281.png";
+import N284 from "./images/weather/64x64/night/284.png";
+import N293 from "./images/weather/64x64/night/293.png";
+import N296 from "./images/weather/64x64/night/296.png";
+import N299 from "./images/weather/64x64/night/299.png";
+import N302 from "./images/weather/64x64/night/302.png";
+import N305 from "./images/weather/64x64/night/305.png";
+import N308 from "./images/weather/64x64/night/308.png";
+import N311 from "./images/weather/64x64/night/311.png";
+import N314 from "./images/weather/64x64/night/314.png";
+import N317 from "./images/weather/64x64/night/317.png";
+import N320 from "./images/weather/64x64/night/320.png";
+import N323 from "./images/weather/64x64/night/323.png";
+import N326 from "./images/weather/64x64/night/326.png";
+import N329 from "./images/weather/64x64/night/329.png";
+import N332 from "./images/weather/64x64/night/332.png";
+import N335 from "./images/weather/64x64/night/335.png";
+import N338 from "./images/weather/64x64/night/338.png";
+import N350 from "./images/weather/64x64/night/350.png";
+import N353 from "./images/weather/64x64/night/353.png";
+import N356 from "./images/weather/64x64/night/356.png";
+import N359 from "./images/weather/64x64/night/359.png";
+import N362 from "./images/weather/64x64/night/362.png";
+import N365 from "./images/weather/64x64/night/365.png";
+import N368 from "./images/weather/64x64/night/368.png";
+import N371 from "./images/weather/64x64/night/371.png";
+import N374 from "./images/weather/64x64/night/374.png";
+import N377 from "./images/weather/64x64/night/377.png";
+import N386 from "./images/weather/64x64/night/386.png";
+import N389 from "./images/weather/64x64/night/389.png";
+import N392 from "./images/weather/64x64/night/392.png";
+import N395 from "./images/weather/64x64/night/395.png";
 
 function createLayout() {
   const wrapper = document.createElement("div");
@@ -565,6 +613,17 @@ function createHourlyForecastWidget() {
   return hourlyForecastWidget;
 }
 
+function getImageVariable(ImageURL) {
+  const splitURL = ImageURL.split("/");
+  const DayOrNightVariable = splitURL[splitURL.length - 2];
+  const imageNumber = ImageURL.slice(
+    ImageURL.lastIndexOf("/"),
+    ImageURL.lastIndexOf(".")
+  ).slice(-3);
+  const imageVariable = DayOrNightVariable + imageNumber;
+  return imageVariable;
+}
+
 async function getWeather(location) {
   const url =
     "http://api.weatherapi.com/v1/forecast.json?key=83eb9e8a5cef4f549f114636231704&q=" +
@@ -572,13 +631,14 @@ async function getWeather(location) {
     "&days=3&aqi=no&alerts=no";
   const apiResponse = await fetch(url);
   const weatherData = await apiResponse.json();
-  console.log(weatherData);
 
   const locationName = weatherData["location"]["name"];
   const regionName = weatherData["location"]["region"];
   const currentDayForecast = weatherData["forecast"]["forecastday"]["0"];
   const currentCondition = currentDayForecast["day"]["condition"]["text"];
-  const currentConditionIcon = currentDayForecast["day"]["condition"]["icon"];
+  const currentConditionIcon = getImageVariable(
+    currentDayForecast["day"]["condition"]["icon"]
+  );
   const currentHighCelsius = currentDayForecast["day"]["maxtemp_c"];
   const currentHighFarenheit = currentDayForecast["day"]["maxtemp_f"];
   const currentLowCelsius = currentDayForecast["day"]["mintemp_c"];
@@ -595,13 +655,99 @@ async function getWeather(location) {
   const tomorrowHighFarenheit = tomorrowForecast["day"]["maxtemp_f"];
   const tomorrowLowCelsius = tomorrowForecast["day"]["mintemp_c"];
   const tomorrowLowFarenheit = tomorrowForecast["day"]["mintemp_f"];
-  const tomorrowConditionIcon = tomorrowForecast["day"]["condition"]["icon"];
+  const tomorrowConditionIcon = getImageVariable(
+    tomorrowForecast["day"]["condition"]["icon"]
+  );
   const twoDayForecast = weatherData["forecast"]["forecastday"]["2"];
   const twoDayHighCelsius = twoDayForecast["day"]["maxtemp_c"];
   const twoDayHighFarenheit = twoDayForecast["day"]["maxtemp_f"];
   const twoDayLowCelsius = twoDayForecast["day"]["mintemp_c"];
   const twoDayLowFarenheit = twoDayForecast["day"]["mintemp_f"];
-  const twoDayConditionIcon = twoDayForecast["day"]["condition"]["icon"];
+  const twoDayConditionIcon = getImageVariable(
+    twoDayForecast["day"]["condition"]["icon"]
+  );
+  const localTime = Number(weatherData["location"]["localtime"].slice(11, 13));
+  let dayCounter = 0;
+  let hourCounter = localTime;
+  let hourArr = [];
+  let tempFArr = [];
+  let tempCArr = [];
+  let iconArr = [];
+
+  for (let i = 0; i < 12; i++) {
+    if (hourCounter > 23) {
+      hourCounter = 0;
+      dayCounter++;
+    }
+    hourArr.push(hourCounter);
+    tempFArr.push(
+      weatherData["forecast"]["forecastday"][dayCounter]["hour"][hourCounter][
+        "temp_f"
+      ]
+    );
+    tempCArr.push(
+      weatherData["forecast"]["forecastday"][dayCounter]["hour"][hourCounter][
+        "temp_c"
+      ]
+    );
+    iconArr.push(
+      getImageVariable(
+        weatherData["forecast"]["forecastday"][dayCounter]["hour"][hourCounter][
+          "condition"
+        ]["icon"]
+      )
+    );
+    hourCounter++;
+  }
+
+  const zeroHourVar = hourArr[0];
+  const zeroHourTempFVar = tempFArr[0];
+  const zeroHourTempCVar = tempCArr[0];
+  const zeroHourIconVar = iconArr[0];
+  const oneHourVar = hourArr[1];
+  const oneHourTempFVar = tempFArr[1];
+  const oneHourTempCVar = tempCArr[1];
+  const oneHourIconVar = iconArr[1];
+  const twoHourVar = hourArr[2];
+  const twoHourTempFVar = tempFArr[2];
+  const twoHourTempCVar = tempCArr[2];
+  const twoHourIconVar = iconArr[2];
+  const threeHourVar = hourArr[3];
+  const threeHourTempFVar = tempFArr[3];
+  const threeHourTempCVar = tempCArr[3];
+  const threeHourIconVar = iconArr[3];
+  const fourHourVar = hourArr[4];
+  const fourHourTempFVar = tempFArr[4];
+  const fourHourTempCVar = tempCArr[4];
+  const fourHourIconVar = iconArr[4];
+  const fiveHourVar = hourArr[5];
+  const fiveHourTempFVar = tempFArr[5];
+  const fiveHourTempCVar = tempCArr[5];
+  const fiveHourIconVar = iconArr[5];
+  const sixHourVar = hourArr[6];
+  const sixHourTempFVar = tempFArr[6];
+  const sixHourTempCVar = tempCArr[6];
+  const sixHourIconVar = iconArr[6];
+  const sevenHourVar = hourArr[7];
+  const sevenHourTempFVar = tempFArr[7];
+  const sevenHourTempCVar = tempCArr[7];
+  const sevenHourIconVar = iconArr[7];
+  const eightHourVar = hourArr[8];
+  const eightHourTempFVar = tempFArr[8];
+  const eightHourTempCVar = tempCArr[8];
+  const eightHourIconVar = iconArr[8];
+  const nineHourVar = hourArr[9];
+  const nineHourTempFVar = tempFArr[9];
+  const nineHourTempCVar = tempCArr[9];
+  const nineHourIconVar = iconArr[9];
+  const tenHourVar = hourArr[10];
+  const tenHourTempFVar = tempFArr[10];
+  const tenHourTempCVar = tempCArr[10];
+  const tenHourIconVar = iconArr[10];
+  const elevenHourVar = hourArr[11];
+  const elevenHourTempFVar = tempFArr[11];
+  const elevenHourTempCVar = tempCArr[11];
+  const elevenHourIconVar = iconArr[11];
 
   const sparsedWeatherData = {
     locationName,
@@ -629,13 +775,61 @@ async function getWeather(location) {
     twoDayLowCelsius,
     twoDayLowFarenheit,
     twoDayConditionIcon,
+    localTime,
+    zeroHourVar,
+    zeroHourTempFVar,
+    zeroHourTempCVar,
+    zeroHourIconVar,
+    oneHourVar,
+    oneHourTempFVar,
+    oneHourTempCVar,
+    oneHourIconVar,
+    twoHourVar,
+    twoHourTempFVar,
+    twoHourTempCVar,
+    twoHourIconVar,
+    threeHourVar,
+    threeHourTempFVar,
+    threeHourTempCVar,
+    threeHourIconVar,
+    fourHourVar,
+    fourHourTempFVar,
+    fourHourTempCVar,
+    fourHourIconVar,
+    fiveHourVar,
+    fiveHourTempFVar,
+    fiveHourTempCVar,
+    fiveHourIconVar,
+    sixHourVar,
+    sixHourTempFVar,
+    sixHourTempCVar,
+    sixHourIconVar,
+    sevenHourVar,
+    sevenHourTempFVar,
+    sevenHourTempCVar,
+    sevenHourIconVar,
+    eightHourVar,
+    eightHourTempFVar,
+    eightHourTempCVar,
+    eightHourIconVar,
+    nineHourVar,
+    nineHourTempFVar,
+    nineHourTempCVar,
+    nineHourIconVar,
+    tenHourVar,
+    tenHourTempFVar,
+    tenHourTempCVar,
+    tenHourIconVar,
+    elevenHourVar,
+    elevenHourTempFVar,
+    elevenHourTempCVar,
+    elevenHourIconVar,
   };
 
   updateDashboard(sparsedWeatherData);
 }
 
 function updateDashboard(weatherData) {
-  console.log(weatherData);
   const locationParameter = document.querySelector(".location");
   locationParameter.textContent =
     weatherData.locationName + ", " + weatherData.regionName;
@@ -660,7 +854,7 @@ function updateDashboard(weatherData) {
   todayLowFParameter.textContent =
     Math.round(weatherData.currentLowFarenheit) + "F";
   const todayWeatherIconParameter = document.querySelector(".todayWeatherIcon");
-  let imageNumber = weatherData.currentConditionIcon.slice(39, 42);
+  let imageNumber = weatherData.currentConditionIcon;
   todayWeatherIconParameter.src = getImagePointer(imageNumber);
   const tomorrowHighFParameter = document.querySelector(".tomorrowHighF");
   tomorrowHighFParameter.textContent =
@@ -671,7 +865,7 @@ function updateDashboard(weatherData) {
   const tomorrowWeatherIconParameter = document.querySelector(
     ".tomorrowWeatherIcon"
   );
-  imageNumber = weatherData.tomorrowConditionIcon.slice(39, 42);
+  imageNumber = weatherData.tomorrowConditionIcon;
   tomorrowWeatherIconParameter.src = getImagePointer(imageNumber);
   const twoDayHighFParameter = document.querySelector(".inTwoDaysHighF");
   twoDayHighFParameter.textContent =
@@ -682,8 +876,112 @@ function updateDashboard(weatherData) {
   const twoDayWeatherIconParameter = document.querySelector(
     ".inTwoDaysWeatherIcon"
   );
-  imageNumber = weatherData.twoDayConditionIcon.slice(39, 42);
+  imageNumber = weatherData.twoDayConditionIcon;
   twoDayWeatherIconParameter.src = getImagePointer(imageNumber);
+  const zeroHourParameter = document.getElementById("zeroHour");
+  zeroHourParameter.textContent = weatherData.zeroHourVar;
+  const zeroHourTempFParameter = document.getElementById("zeroHourTempF");
+  zeroHourTempFParameter.textContent =
+    Math.round(weatherData.zeroHourTempFVar) + "F";
+  const zeroHourIconParameter = document.getElementById("zeroHourWeatherIcon");
+  imageNumber = weatherData.zeroHourIconVar;
+  zeroHourIconParameter.src = getImagePointer(imageNumber);
+  const oneHourParameter = document.getElementById("oneHour");
+  oneHourParameter.textContent = weatherData.oneHourVar;
+  const oneHourTempFParameter = document.getElementById("oneHourTempF");
+  oneHourTempFParameter.textContent =
+    Math.round(weatherData.oneHourTempFVar) + "F";
+  const oneHourIconParameter = document.getElementById("oneHourWeatherIcon");
+  imageNumber = weatherData.oneHourIconVar;
+  oneHourIconParameter.src = getImagePointer(imageNumber);
+  const twoHourParameter = document.getElementById("twoHour");
+  twoHourParameter.textContent = weatherData.twoHourVar;
+  const twoHourTempFParameter = document.getElementById("twoHourTempF");
+  twoHourTempFParameter.textContent =
+    Math.round(weatherData.twoHourTempFVar) + "F";
+  const twoHourIconParameter = document.getElementById("twoHourWeatherIcon");
+  imageNumber = weatherData.twoHourIconVar;
+  twoHourIconParameter.src = getImagePointer(imageNumber);
+  const threeHourParameter = document.getElementById("threeHour");
+  threeHourParameter.textContent = weatherData.threeHourVar;
+  const threeHourTempFParameter = document.getElementById("threeHourTempF");
+  threeHourTempFParameter.textContent =
+    Math.round(weatherData.threeHourTempFVar) + "F";
+  const threeHourIconParameter = document.getElementById(
+    "threeHourWeatherIcon"
+  );
+  imageNumber = weatherData.threeHourIconVar;
+  threeHourIconParameter.src = getImagePointer(imageNumber);
+  const fourHourParameter = document.getElementById("fourHour");
+  fourHourParameter.textContent = weatherData.fourHourVar;
+  const fourHourTempFParameter = document.getElementById("fourHourTempF");
+  fourHourTempFParameter.textContent =
+    Math.round(weatherData.fourHourTempFVar) + "F";
+  const fourHourIconParameter = document.getElementById("fourHourWeatherIcon");
+  imageNumber = weatherData.fourHourIconVar;
+  fourHourIconParameter.src = getImagePointer(imageNumber);
+  const fiveHourParameter = document.getElementById("fiveHour");
+  fiveHourParameter.textContent = weatherData.fiveHourVar;
+  const fiveHourTempFParameter = document.getElementById("fiveHourTempF");
+  fiveHourTempFParameter.textContent =
+    Math.round(weatherData.fiveHourTempFVar) + "F";
+  const fiveHourIconParameter = document.getElementById("fiveHourWeatherIcon");
+  imageNumber = weatherData.fiveHourIconVar;
+  fiveHourIconParameter.src = getImagePointer(imageNumber);
+  const sixHourParameter = document.getElementById("sixHour");
+  sixHourParameter.textContent = weatherData.sixHourVar;
+  const sixHourTempFParameter = document.getElementById("sixHourTempF");
+  sixHourTempFParameter.textContent =
+    Math.round(weatherData.sixHourTempFVar) + "F";
+  const sixHourIconParameter = document.getElementById("sixHourWeatherIcon");
+  imageNumber = weatherData.sixHourIconVar;
+  sixHourIconParameter.src = getImagePointer(imageNumber);
+  const sevenHourParameter = document.getElementById("sevenHour");
+  sevenHourParameter.textContent = weatherData.sevenHourVar;
+  const sevenHourTempFParameter = document.getElementById("sevenHourTempF");
+  sevenHourTempFParameter.textContent =
+    Math.round(weatherData.sevenHourTempFVar) + "F";
+  const sevenHourIconParameter = document.getElementById(
+    "sevenHourWeatherIcon"
+  );
+  imageNumber = weatherData.sevenHourIconVar;
+  sevenHourIconParameter.src = getImagePointer(imageNumber);
+  const eightHourParameter = document.getElementById("eightHour");
+  eightHourParameter.textContent = weatherData.eightHourVar;
+  const eightHourTempFParameter = document.getElementById("eightHourTempF");
+  eightHourTempFParameter.textContent =
+    Math.round(weatherData.eightHourTempFVar) + "F";
+  const eightHourIconParameter = document.getElementById(
+    "eightHourWeatherIcon"
+  );
+  imageNumber = weatherData.eightHourIconVar;
+  eightHourIconParameter.src = getImagePointer(imageNumber);
+  const nineHourParameter = document.getElementById("nineHour");
+  nineHourParameter.textContent = weatherData.nineHourVar;
+  const nineHourTempFParameter = document.getElementById("nineHourTempF");
+  nineHourTempFParameter.textContent =
+    Math.round(weatherData.nineHourTempFVar) + "F";
+  const nineHourIconParameter = document.getElementById("nineHourWeatherIcon");
+  imageNumber = weatherData.nineHourIconVar;
+  nineHourIconParameter.src = getImagePointer(imageNumber);
+  const tenHourParameter = document.getElementById("tenHour");
+  tenHourParameter.textContent = weatherData.tenHourVar;
+  const tenHourTempFParameter = document.getElementById("tenHourTempF");
+  tenHourTempFParameter.textContent =
+    Math.round(weatherData.tenHourTempFVar) + "F";
+  const tenHourIconParameter = document.getElementById("tenHourWeatherIcon");
+  imageNumber = weatherData.tenHourIconVar;
+  tenHourIconParameter.src = getImagePointer(imageNumber);
+  const elevenHourParameter = document.getElementById("elevenHour");
+  elevenHourParameter.textContent = weatherData.elevenHourVar;
+  const elevenHourTempFParameter = document.getElementById("elevenHourTempF");
+  elevenHourTempFParameter.textContent =
+    Math.round(weatherData.elevenHourTempFVar) + "F";
+  const elevenHourIconParameter = document.getElementById(
+    "elevenHourWeatherIcon"
+  );
+  imageNumber = weatherData.elevenHourIconVar;
+  elevenHourIconParameter.src = getImagePointer(imageNumber);
 }
 
 function handleSubmit(e) {
@@ -693,155 +991,309 @@ function handleSubmit(e) {
   document.getElementById("areaInput").value = "";
 }
 
-function getImagePointer(imageNumber) {
-  if (imageNumber == "113") {
-    return I113;
+function getImagePointer(imageVariable) {
+  const imageDayorNight = imageVariable.slice(0, -3);
+  const imageNumber = imageVariable.slice(-3);
+  if (imageDayorNight == "day") {
+    if (imageNumber == "113") {
+      return D113;
+    }
+    if (imageNumber == "116") {
+      return D116;
+    }
+    if (imageNumber == "119") {
+      return D119;
+    }
+    if (imageNumber == "122") {
+      return D122;
+    }
+    if (imageNumber == "143") {
+      return D143;
+    }
+    if (imageNumber == "176") {
+      return D176;
+    }
+    if (imageNumber == "179") {
+      return D179;
+    }
+    if (imageNumber == "182") {
+      return D182;
+    }
+    if (imageNumber == "185") {
+      return D185;
+    }
+    if (imageNumber == "200") {
+      return D200;
+    }
+    if (imageNumber == "227") {
+      return D227;
+    }
+    if (imageNumber == "230") {
+      return D230;
+    }
+    if (imageNumber == "248") {
+      return D248;
+    }
+    if (imageNumber == "260") {
+      return D260;
+    }
+    if (imageNumber == "263") {
+      return D263;
+    }
+    if (imageNumber == "266") {
+      return D266;
+    }
+    if (imageNumber == "281") {
+      return D281;
+    }
+    if (imageNumber == "284") {
+      return D284;
+    }
+    if (imageNumber == "293") {
+      return D293;
+    }
+    if (imageNumber == "296") {
+      return D296;
+    }
+    if (imageNumber == "299") {
+      return D299;
+    }
+    if (imageNumber == "302") {
+      return D302;
+    }
+    if (imageNumber == "305") {
+      return D305;
+    }
+    if (imageNumber == "308") {
+      return D308;
+    }
+    if (imageNumber == "311") {
+      return D311;
+    }
+    if (imageNumber == "314") {
+      return D314;
+    }
+    if (imageNumber == "317") {
+      return D317;
+    }
+    if (imageNumber == "320") {
+      return D320;
+    }
+    if (imageNumber == "323") {
+      return D323;
+    }
+    if (imageNumber == "326") {
+      return D326;
+    }
+    if (imageNumber == "329") {
+      return D329;
+    }
+    if (imageNumber == "332") {
+      return D332;
+    }
+    if (imageNumber == "335") {
+      return D335;
+    }
+    if (imageNumber == "338") {
+      return D338;
+    }
+    if (imageNumber == "350") {
+      return D350;
+    }
+    if (imageNumber == "353") {
+      return D353;
+    }
+    if (imageNumber == "356") {
+      return D356;
+    }
+    if (imageNumber == "359") {
+      return D359;
+    }
+    if (imageNumber == "362") {
+      return D362;
+    }
+    if (imageNumber == "365") {
+      return D365;
+    }
+    if (imageNumber == "368") {
+      return D368;
+    }
+    if (imageNumber == "371") {
+      return D371;
+    }
+    if (imageNumber == "374") {
+      return D374;
+    }
+    if (imageNumber == "377") {
+      return D377;
+    }
+    if (imageNumber == "386") {
+      return D386;
+    }
+    if (imageNumber == "389") {
+      return D389;
+    }
+    if (imageNumber == "392") {
+      return D392;
+    }
+    if (imageNumber == "395") {
+      return D395;
+    } else {
+      return D113;
+    }
   }
-  if (imageNumber == "116") {
-    return I116;
-  }
-  if (imageNumber == "119") {
-    return I119;
-  }
-  if (imageNumber == "122") {
-    return I122;
-  }
-  if (imageNumber == "143") {
-    return I143;
-  }
-  if (imageNumber == "176") {
-    return I176;
-  }
-  if (imageNumber == "179") {
-    return I179;
-  }
-  if (imageNumber == "182") {
-    return I182;
-  }
-  if (imageNumber == "185") {
-    return I185;
-  }
-  if (imageNumber == "200") {
-    return I200;
-  }
-  if (imageNumber == "227") {
-    return I227;
-  }
-  if (imageNumber == "230") {
-    return I230;
-  }
-  if (imageNumber == "248") {
-    return I248;
-  }
-  if (imageNumber == "260") {
-    return I260;
-  }
-  if (imageNumber == "263") {
-    return I263;
-  }
-  if (imageNumber == "266") {
-    return I266;
-  }
-  if (imageNumber == "281") {
-    return I281;
-  }
-  if (imageNumber == "284") {
-    return I284;
-  }
-  if (imageNumber == "293") {
-    return I293;
-  }
-  if (imageNumber == "296") {
-    return I296;
-  }
-  if (imageNumber == "299") {
-    return I299;
-  }
-  if (imageNumber == "302") {
-    return I302;
-  }
-  if (imageNumber == "305") {
-    return I305;
-  }
-  if (imageNumber == "308") {
-    return I308;
-  }
-  if (imageNumber == "311") {
-    return I311;
-  }
-  if (imageNumber == "314") {
-    return I314;
-  }
-  if (imageNumber == "317") {
-    return I317;
-  }
-  if (imageNumber == "320") {
-    return I320;
-  }
-  if (imageNumber == "323") {
-    return I323;
-  }
-  if (imageNumber == "326") {
-    return I326;
-  }
-  if (imageNumber == "329") {
-    return I329;
-  }
-  if (imageNumber == "332") {
-    return I332;
-  }
-  if (imageNumber == "335") {
-    return I335;
-  }
-  if (imageNumber == "338") {
-    return I338;
-  }
-  if (imageNumber == "350") {
-    return I350;
-  }
-  if (imageNumber == "353") {
-    return I353;
-  }
-  if (imageNumber == "356") {
-    return I356;
-  }
-  if (imageNumber == "359") {
-    return I359;
-  }
-  if (imageNumber == "362") {
-    return I362;
-  }
-  if (imageNumber == "365") {
-    return I365;
-  }
-  if (imageNumber == "368") {
-    return I368;
-  }
-  if (imageNumber == "371") {
-    return I371;
-  }
-  if (imageNumber == "374") {
-    return I374;
-  }
-  if (imageNumber == "377") {
-    return I377;
-  }
-  if (imageNumber == "386") {
-    return I386;
-  }
-  if (imageNumber == "389") {
-    return I389;
-  }
-  if (imageNumber == "392") {
-    return I392;
-  }
-  if (imageNumber == "395") {
-    return I395;
+  if (imageDayorNight == "night") {
+    if (imageNumber == "113") {
+      return N113;
+    }
+    if (imageNumber == "116") {
+      return N116;
+    }
+    if (imageNumber == "119") {
+      return N119;
+    }
+    if (imageNumber == "122") {
+      return N122;
+    }
+    if (imageNumber == "143") {
+      return N143;
+    }
+    if (imageNumber == "176") {
+      return N176;
+    }
+    if (imageNumber == "179") {
+      return N179;
+    }
+    if (imageNumber == "182") {
+      return N182;
+    }
+    if (imageNumber == "185") {
+      return N185;
+    }
+    if (imageNumber == "200") {
+      return N200;
+    }
+    if (imageNumber == "227") {
+      return N227;
+    }
+    if (imageNumber == "230") {
+      return N230;
+    }
+    if (imageNumber == "248") {
+      return N248;
+    }
+    if (imageNumber == "260") {
+      return N260;
+    }
+    if (imageNumber == "263") {
+      return N263;
+    }
+    if (imageNumber == "266") {
+      return N266;
+    }
+    if (imageNumber == "281") {
+      return N281;
+    }
+    if (imageNumber == "284") {
+      return N284;
+    }
+    if (imageNumber == "293") {
+      return N293;
+    }
+    if (imageNumber == "296") {
+      return N296;
+    }
+    if (imageNumber == "299") {
+      return N299;
+    }
+    if (imageNumber == "302") {
+      return N302;
+    }
+    if (imageNumber == "305") {
+      return N305;
+    }
+    if (imageNumber == "308") {
+      return N308;
+    }
+    if (imageNumber == "311") {
+      return N311;
+    }
+    if (imageNumber == "314") {
+      return N314;
+    }
+    if (imageNumber == "317") {
+      return N317;
+    }
+    if (imageNumber == "320") {
+      return N320;
+    }
+    if (imageNumber == "323") {
+      return N323;
+    }
+    if (imageNumber == "326") {
+      return N326;
+    }
+    if (imageNumber == "329") {
+      return N329;
+    }
+    if (imageNumber == "332") {
+      return N332;
+    }
+    if (imageNumber == "335") {
+      return N335;
+    }
+    if (imageNumber == "338") {
+      return N338;
+    }
+    if (imageNumber == "350") {
+      return N350;
+    }
+    if (imageNumber == "353") {
+      return N353;
+    }
+    if (imageNumber == "356") {
+      return N356;
+    }
+    if (imageNumber == "359") {
+      return N359;
+    }
+    if (imageNumber == "362") {
+      return N362;
+    }
+    if (imageNumber == "365") {
+      return N365;
+    }
+    if (imageNumber == "368") {
+      return N368;
+    }
+    if (imageNumber == "371") {
+      return N371;
+    }
+    if (imageNumber == "374") {
+      return N374;
+    }
+    if (imageNumber == "377") {
+      return N377;
+    }
+    if (imageNumber == "386") {
+      return N386;
+    }
+    if (imageNumber == "389") {
+      return N389;
+    }
+    if (imageNumber == "392") {
+      return N392;
+    }
+    if (imageNumber == "395") {
+      return N395;
+    } else {
+      return N113;
+    }
   } else {
-    return I113;
+    return D113;
   }
 }
 
 document.body.appendChild(createLayout());
-let location = "Golden, Colorado";
+let location = "Denver, Colorado";
 getWeather(location);
