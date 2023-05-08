@@ -395,6 +395,7 @@ function createHourlyForecastWidget() {
   const hourlyForecastIndexOne = document.createElement("div");
   hourlyForecastIndexOne.setAttribute("id", "hourlyForecastIndexOne");
   hourlyForecastIndexOne.classList.add("hourlyForecastIndex");
+  hourlyForecastIndexOne.classList.add("inactive-right");
 
   const fourHourForecast = document.createElement("div");
   fourHourForecast.classList.add("hourlyForecastBox");
@@ -479,6 +480,7 @@ function createHourlyForecastWidget() {
   const hourlyForecastIndexTwo = document.createElement("div");
   hourlyForecastIndexTwo.setAttribute("id", "hourlyForecastIndexTwo");
   hourlyForecastIndexTwo.classList.add("hourlyForecastIndex");
+  hourlyForecastIndexTwo.classList.add("inactive-right");
 
   const eightHourForecast = document.createElement("div");
   eightHourForecast.classList.add("hourlyForecastBox");
@@ -1333,6 +1335,8 @@ function handleLeftClick() {
   if (scrollCounter == 1) {
     scrollCounter--;
     infobox1.classList.remove("active");
+    infobox1.classList.add("inactive-right");
+    infobox0.classList.remove("inactive-left");
     infobox0.classList.add("active");
     navDotOne.classList.remove("navActive");
     navDotZero.classList.add("navActive");
@@ -1340,6 +1344,8 @@ function handleLeftClick() {
   if (scrollCounter == 2) {
     scrollCounter--;
     infobox2.classList.remove("active");
+    infobox2.classList.add("inactive-right");
+    infobox1.classList.remove("inactive-left");
     infobox1.classList.add("active");
     navDotTwo.classList.remove("navActive");
     navDotOne.classList.add("navActive");
@@ -1353,6 +1359,8 @@ function handleRightClick() {
   if (scrollCounter == 1) {
     scrollCounter++;
     infobox1.classList.remove("active");
+    infobox1.classList.add("inactive-left");
+    infobox2.classList.remove("inactive-right");
     infobox2.classList.add("active");
     navDotOne.classList.remove("navActive");
     navDotTwo.classList.add("navActive");
@@ -1360,6 +1368,8 @@ function handleRightClick() {
   if (scrollCounter == 0) {
     scrollCounter++;
     infobox0.classList.remove("active");
+    infobox0.classList.add("inactive-left");
+    infobox1.classList.remove("inactive-right");
     infobox1.classList.add("active");
     navDotZero.classList.remove("navActive");
     navDotOne.classList.add("navActive");
