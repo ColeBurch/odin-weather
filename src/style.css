@@ -185,6 +185,26 @@ body {
   white-space: nowrap;
 }
 
+.scrollbar {
+  display: flex;
+  justify-content: center;
+}
+
+.navDot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0);
+  border: 1px solid #f3f3f3;
+  margin: 0 5px;
+  cursor: pointer;
+  margin-top: 5px;
+}
+
+.navDot.navActive {
+  background-color: #f3f3f3;
+}
+
 footer .wrapper:after {
   height: 40px;
 }

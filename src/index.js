@@ -96,6 +96,8 @@ import N386 from "./images/weather/64x64/night/386.png";
 import N389 from "./images/weather/64x64/night/389.png";
 import N392 from "./images/weather/64x64/night/392.png";
 import N395 from "./images/weather/64x64/night/395.png";
+import scrollLeft from "./images/chevron-left.svg";
+import scrollRight from "./images/chevron-right.svg";
 
 function createLayout() {
   const wrapper = document.createElement("div");
@@ -558,9 +560,34 @@ function createHourlyForecastWidget() {
   imagePointer = getImagePointer("356");
   elevenHourWeatherIcon.src = imagePointer;
 
+  const scrollbar = document.createElement("div");
+  scrollbar.classList.add("scrollbar");
+
+  const scrollbarLeft = document.createElement("img");
+  scrollbarLeft.classList.add("scrollbarLeft");
+  scrollbarLeft.src = scrollLeft;
+
+  const navDot1 = document.createElement("div");
+  navDot1.classList.add("navDot");
+  navDot1.setAttribute("id", "navDot1");
+  navDot1.classList.add("navActive");
+
+  const navDot2 = document.createElement("div");
+  navDot2.classList.add("navDot");
+  navDot2.setAttribute("id", "navDot2");
+
+  const navDot3 = document.createElement("div");
+  navDot3.classList.add("navDot");
+  navDot3.setAttribute("id", "navDot3");
+
+  const scrollbarRight = document.createElement("img");
+  scrollbarRight.classList.add("scrollbarRight");
+  scrollbarRight.src = scrollRight;
+
   hourlyForecastWidget.appendChild(hourlyForecastIndexZero);
   hourlyForecastWidget.appendChild(hourlyForecastIndexOne);
   hourlyForecastWidget.appendChild(hourlyForecastIndexTwo);
+  hourlyForecastWidget.appendChild(scrollbar);
   hourlyForecastIndexZero.appendChild(zeroHourForecast);
   hourlyForecastIndexZero.appendChild(oneHourForecast);
   hourlyForecastIndexZero.appendChild(twoHourForecast);
@@ -609,6 +636,11 @@ function createHourlyForecastWidget() {
   elevenHourForecast.appendChild(elevenHour);
   elevenHourForecast.appendChild(elevenHourTempF);
   elevenHourForecast.appendChild(elevenHourWeatherIcon);
+  scrollbar.appendChild(scrollbarLeft);
+  scrollbar.appendChild(navDot1);
+  scrollbar.appendChild(navDot2);
+  scrollbar.appendChild(navDot3);
+  scrollbar.appendChild(scrollbarRight);
 
   return hourlyForecastWidget;
 }
