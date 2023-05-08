@@ -567,18 +567,18 @@ function createHourlyForecastWidget() {
   scrollbarLeft.classList.add("scrollbarLeft");
   scrollbarLeft.src = scrollLeft;
 
+  const navDot0 = document.createElement("div");
+  navDot0.classList.add("navDot");
+  navDot0.setAttribute("id", "navDot0");
+  navDot0.classList.add("navActive");
+
   const navDot1 = document.createElement("div");
   navDot1.classList.add("navDot");
   navDot1.setAttribute("id", "navDot1");
-  navDot1.classList.add("navActive");
 
   const navDot2 = document.createElement("div");
   navDot2.classList.add("navDot");
   navDot2.setAttribute("id", "navDot2");
-
-  const navDot3 = document.createElement("div");
-  navDot3.classList.add("navDot");
-  navDot3.setAttribute("id", "navDot3");
 
   const scrollbarRight = document.createElement("img");
   scrollbarRight.classList.add("scrollbarRight");
@@ -637,9 +637,9 @@ function createHourlyForecastWidget() {
   elevenHourForecast.appendChild(elevenHourTempF);
   elevenHourForecast.appendChild(elevenHourWeatherIcon);
   scrollbar.appendChild(scrollbarLeft);
+  scrollbar.appendChild(navDot0);
   scrollbar.appendChild(navDot1);
   scrollbar.appendChild(navDot2);
-  scrollbar.appendChild(navDot3);
   scrollbar.appendChild(scrollbarRight);
 
   return hourlyForecastWidget;
@@ -1326,6 +1326,57 @@ function getImagePointer(imageVariable) {
   }
 }
 
+function handleLeftClick() {
+  if (scrollCounter == 0) {
+    return;
+  }
+  if (scrollCounter == 1) {
+    scrollCounter--;
+    infobox1.classList.remove("active");
+    infobox0.classList.add("active");
+    navDotOne.classList.remove("navActive");
+    navDotZero.classList.add("navActive");
+  }
+  if (scrollCounter == 2) {
+    scrollCounter--;
+    infobox2.classList.remove("active");
+    infobox1.classList.add("active");
+    navDotTwo.classList.remove("navActive");
+    navDotOne.classList.add("navActive");
+  }
+}
+
+function handleRightClick() {
+  if (scrollCounter == 2) {
+    return;
+  }
+  if (scrollCounter == 1) {
+    scrollCounter++;
+    infobox1.classList.remove("active");
+    infobox2.classList.add("active");
+    navDotOne.classList.remove("navActive");
+    navDotTwo.classList.add("navActive");
+  }
+  if (scrollCounter == 0) {
+    scrollCounter++;
+    infobox0.classList.remove("active");
+    infobox1.classList.add("active");
+    navDotZero.classList.remove("navActive");
+    navDotOne.classList.add("navActive");
+  }
+}
+
+let scrollCounter = 0;
 document.body.appendChild(createLayout());
 let location = "Denver, Colorado";
 getWeather(location);
+const infobox0 = document.getElementById("hourlyForecastIndexZero");
+const infobox1 = document.getElementById("hourlyForecastIndexOne");
+const infobox2 = document.getElementById("hourlyForecastIndexTwo");
+const navDotZero = document.getElementById("navDot0");
+const navDotOne = document.getElementById("navDot1");
+const navDotTwo = document.getElementById("navDot2");
+const leftArrow = document.querySelector(".scrollbarLeft");
+const rightArrow = document.querySelector(".scrollbarRight");
+leftArrow.addEventListener("click", handleLeftClick);
+rightArrow.addEventListener("click", handleRightClick);

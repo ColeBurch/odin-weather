@@ -155,7 +155,7 @@ body {
   align-items: center;
   grid-area: 1 / 1 / 1 / 1;
   transform: translate(0, 0) scale(0);
-  transition: 1s ease-in-out;
+  transition: 0.2s ease-in-out;
 }
 
 .hourlyForecastIndex.active {
