@@ -98,6 +98,14 @@ import N392 from "./images/weather/64x64/night/392.png";
 import N395 from "./images/weather/64x64/night/395.png";
 import scrollLeft from "./images/chevron-left.svg";
 import scrollRight from "./images/chevron-right.svg";
+import sunnyDay from "./images/weather/backgrounds/sunny.jpg";
+import cloudyDay from "./images/weather/backgrounds/cloudy.jpg";
+import overcastDay from "./images/weather/backgrounds/overcast.jpg";
+import stormyDay from "./images/weather/backgrounds/lightning.jpg";
+import foggyDay from "./images/weather/backgrounds/foggy.jpg";
+import snowyDay from "./images/weather/backgrounds/snow.jpg";
+import rainyDay from "./images/weather/backgrounds/rainy.jpg";
+import clearNight from "./images/weather/backgrounds/clearNight.jpg";
 
 function createLayout() {
   const wrapper = document.createElement("div");
@@ -864,6 +872,13 @@ async function getWeather(location) {
 }
 
 function updateDashboard(weatherData) {
+  const background = document.querySelector(".wrapper");
+  background.setAttribute(
+    "style",
+    "background-image: url(" +
+      setBackgroundImage(weatherData.currentCondition) +
+      ")"
+  );
   const locationParameter = document.querySelector(".location");
   locationParameter.textContent =
     weatherData.locationName + ", " + weatherData.regionName;
@@ -1373,6 +1388,108 @@ function handleRightClick() {
     infobox1.classList.add("active");
     navDotZero.classList.remove("navActive");
     navDotOne.classList.add("navActive");
+  }
+}
+
+function setBackgroundImage(currentCondition) {
+  console.log(currentCondition);
+  const wrapperText = document.querySelector(".wrapper");
+  if (currentCondition == "Sunny") {
+    wrapperText.classList.remove("whiteText");
+    wrapperText.classList.add("blackText");
+    return sunnyDay;
+  }
+  if (currentCondition == "Clear") {
+    wrapperText.classList.remove("blackText");
+    wrapperText.classList.add("whiteText");
+    return clearNight;
+  }
+  if (
+    currentCondition == "Partly cloudy" ||
+    currentCondition == "Cloudy" ||
+    currentCondition == "Overcast" ||
+    currentCondition == "Patchy rain possible"
+  ) {
+    wrapperText.classList.remove("whiteText");
+    wrapperText.classList.add("blackText");
+    return cloudyDay;
+  }
+  if (
+    currentCondition == "Mist" ||
+    currentCondition == "Fog" ||
+    currentCondition == "Freezing fog"
+  ) {
+    wrapperText.classList.remove("whiteText");
+    wrapperText.classList.add("blackText");
+    return foggyDay;
+  }
+  if (
+    currentCondition == "Patchy snow possible" ||
+    currentCondition == "Patchy sleet possible" ||
+    currentCondition == "Patchy freezing drizzle possible" ||
+    currentCondition == "Blowing snow" ||
+    currentCondition == "Blizzard" ||
+    currentCondition == "Patchy light snow" ||
+    currentCondition == "Light snow" ||
+    currentCondition == "Patchy moderate snow" ||
+    currentCondition == "Moderate snow" ||
+    currentCondition == "Patchy heavy snow" ||
+    currentCondition == "Heavy snow" ||
+    currentCondition == "Ice pellets" ||
+    currentCondition == "Light sleet" ||
+    currentCondition == "Moderate or heavy sleet" ||
+    currentCondition == "Patchy light snow with thunder" ||
+    currentCondition == "Moderate or heavy snow with thunder" ||
+    currentCondition == "Light snow showers" ||
+    currentCondition == "Moderate or heavy snow showers" ||
+    currentCondition == "Light showers of ice pellets" ||
+    currentCondition == "Moderate or heavy showers of ice pellets" ||
+    currentCondition == "Freezing drizzle" ||
+    currentCondition == "Heavy freezing drizzle" ||
+    currentCondition == "Light freezing rain" ||
+    currentCondition == "Moderate or heavy freezing rain" ||
+    currentCondition == "Light sleet showers" ||
+    currentCondition == "Moderate or heavy sleet showers"
+  ) {
+    wrapperText.classList.remove("whiteText");
+    wrapperText.classList.add("blackText");
+    return snowyDay;
+  }
+  if (
+    currentCondition == "Thundery outbreaks possible" ||
+    currentCondition == "Moderate rain at times" ||
+    currentCondition == "Patchy light rain with thunder" ||
+    currentCondition == "Patchy light drizzle" ||
+    currentCondition == "Light drizzle" ||
+    currentCondition == "Patchy light rain"
+  ) {
+    wrapperText.classList.remove("whiteText");
+    wrapperText.classList.add("blackText");
+    return overcastDay;
+  }
+  if (
+    currentCondition == "Light rain" ||
+    currentCondition == "Light rain shower" ||
+    currentCondition == "Moderate rain" ||
+    currentCondition == "Heavy rain at Times" ||
+    currentCondition == "Heavy rain" ||
+    currentCondition == "Moderate or heavy rain shower"
+  ) {
+    wrapperText.classList.remove("blackText");
+    wrapperText.classList.add("whiteText");
+    return rainyDay;
+  }
+  if (
+    currentCondition == "Torrential rain shower" ||
+    currentCondition == "Moderate or heavy rain with thunder"
+  ) {
+    wrapperText.classList.remove("blackText");
+    wrapperText.classList.add("whiteText");
+    return stormyDay;
+  } else {
+    wrapperText.classList.remove("whiteText");
+    wrapperText.classList.add("blackText");
+    return sunnyDay;
   }
 }
 

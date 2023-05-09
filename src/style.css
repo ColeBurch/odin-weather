@@ -12,7 +12,17 @@ body {
   margin-bottom: -40px;
   display: grid;
   grid-template-rows: 80px 1fr;
-  background-color: #7c7a7a;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.whiteText {
+  color: #f3f3f3;
+}
+
+.blackText {
+  color: #000000;
 }
 
 .wrapper::after {
@@ -210,6 +220,12 @@ body {
 
 .navDot.navActive {
   background-color: #f3f3f3;
+}
+
+.scrollbarLeft,
+.scrollbarRight {
+  filter: invert(97%) sepia(12%) saturate(201%) hue-rotate(202deg)
+    brightness(118%) contrast(91%);
 }
 
 footer .wrapper:after {
