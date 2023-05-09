@@ -85,12 +85,34 @@ body {
   white-space: nowrap;
 }
 
-.currentTempF {
+.currentTemp {
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: start;
+  justify-content: start;
   font-size: 10rem;
   font-weight: 900;
   font-family: "Nunito", sans-serif;
   position: relative;
   white-space: nowrap;
+}
+
+.currentTempF {
+  grid-area: 1 / 1 / 1 / 1;
+  transform: translate(0, 0) scale(0);
+}
+
+.currentTempF.active {
+  transform: translate(0, 0) scale(1);
+}
+
+.currentTempC {
+  grid-area: 1 / 1 / 1 / 1;
+  transform: translate(0, 0) scale(0);
+}
+
+.currentTempC.active {
+  transform: translate(0, 0) scale(1);
 }
 
 .currentWeatherMoreDetails {
@@ -101,6 +123,31 @@ body {
   padding-left: 3.5rem;
   justify-content: space-between;
   margin-left: 30px;
+}
+
+.feelsLike {
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: start;
+  justify-content: start;
+}
+
+.feelsLikeF {
+  grid-area: 1 / 1 / 1 / 1;
+  transform: translate(0, 0) scale(0);
+}
+
+.feelsLikeF.active {
+  transform: translate(0, 0) scale(1);
+}
+
+.feelsLikeC {
+  grid-area: 1 / 1 / 1 / 1;
+  transform: translate(0, 0) scale(0);
+}
+
+.feelsLikeC.active {
+  transform: translate(0, 0) scale(1);
 }
 
 .moreDetails {
@@ -136,20 +183,136 @@ body {
   white-space: nowrap;
 }
 
-.threeDayForecastHighF {
+.threeDayForecastHigh {
   font-size: 3rem;
   line-height: 3.5rem;
   font-weight: 800;
   letter-spacing: 0.1rem;
   white-space: nowrap;
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: start;
+  justify-content: start;
 }
 
-.threeDayForecastLowF {
+.threeDayForecastLow {
   font-size: 1.5rem;
   line-height: 1.5rem;
   font-weight: 400;
   letter-spacing: 0.1rem;
   white-space: nowrap;
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: start;
+  justify-content: start;
+}
+
+.todayHighF {
+  grid-area: 1 / 1 / 1 / 1;
+  transform: translate(0, 0) scale(0);
+}
+
+.todayHighF.active {
+  transform: translate(0, 0) scale(1);
+}
+
+.todayHighC {
+  grid-area: 1 / 1 / 1 / 1;
+  transform: translate(0, 0) scale(0);
+}
+
+.todayHighC.active {
+  transform: translate(0, 0) scale(1);
+}
+
+.todayLowF {
+  grid-area: 1 / 1 / 1 / 1;
+  transform: translate(0, 0) scale(0);
+}
+
+.todayLowF.active {
+  transform: translate(0, 0) scale(1);
+}
+
+.todayLowC {
+  grid-area: 1 / 1 / 1 / 1;
+  transform: translate(0, 0) scale(0);
+}
+
+.todayLowC.active {
+  transform: translate(0, 0) scale(1);
+}
+
+.tomorrowHighF {
+  grid-area: 1 / 1 / 1 / 1;
+  transform: translate(0, 0) scale(0);
+}
+
+.tomorrowHighF.active {
+  transform: translate(0, 0) scale(1);
+}
+
+.tomorrowHighC {
+  grid-area: 1 / 1 / 1 / 1;
+  transform: translate(0, 0) scale(0);
+}
+
+.tomorrowHighC.active {
+  transform: translate(0, 0) scale(1);
+}
+
+.tomorrowLowF {
+  grid-area: 1 / 1 / 1 / 1;
+  transform: translate(0, 0) scale(0);
+}
+
+.tomorrowLowF.active {
+  transform: translate(0, 0) scale(1);
+}
+
+.tomorrowLowC {
+  grid-area: 1 / 1 / 1 / 1;
+  transform: translate(0, 0) scale(0);
+}
+
+.tomorrowLowC.active {
+  transform: translate(0, 0) scale(1);
+}
+
+.inTwoDaysHighF {
+  grid-area: 1 / 1 / 1 / 1;
+  transform: translate(0, 0) scale(0);
+}
+
+.inTwoDaysHighF.active {
+  transform: translate(0, 0) scale(1);
+}
+
+.inTwoDaysHighC {
+  grid-area: 1 / 1 / 1 / 1;
+  transform: translate(0, 0) scale(0);
+}
+
+.inTwoDaysHighC.active {
+  transform: translate(0, 0) scale(1);
+}
+
+.inTwoDaysLowF {
+  grid-area: 1 / 1 / 1 / 1;
+  transform: translate(0, 0) scale(0);
+}
+
+.inTwoDaysLowF.active {
+  transform: translate(0, 0) scale(1);
+}
+
+.inTwoDaysLowC {
+  grid-area: 1 / 1 / 1 / 1;
+  transform: translate(0, 0) scale(0);
+}
+
+.inTwoDaysLowC.active {
+  transform: translate(0, 0) scale(1);
 }
 
 .hourlyForecastWidget {
@@ -195,11 +358,28 @@ body {
   margin-bottom: 1rem;
 }
 
-.hourlyForecastTempF {
+.hourlyForecastTemp {
   font-size: 1.5rem;
   font-weight: 400;
   letter-spacing: 0.1rem;
   white-space: nowrap;
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: start;
+  justify-content: start;
+}
+
+.hourlyForecastTemp {
+  grid-area: 1 / 1 / 1 / 1;
+  transition: 0.2s ease-in-out;
+}
+
+.hourlyForecastTemp.inactive {
+  transform: translate(0, 0) scale(0);
+}
+
+.hourlyForecastTemp.active {
+  transform: translate(0, 0) scale(1);
 }
 
 .scrollbar {
