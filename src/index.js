@@ -126,6 +126,29 @@ function createLayout() {
   areaInput.setAttribute("type", "text");
   areaInput.setAttribute("placeholder", "Search city");
 
+  const sliderContainer = document.createElement("div");
+  sliderContainer.classList.add("sliderContainer");
+
+  const farenheit = document.createElement("div");
+  farenheit.classList.add("farenheit");
+  farenheit.textContent = "F";
+
+  const cAndFSwitch = document.createElement("label");
+  cAndFSwitch.classList.add("switch");
+  cAndFSwitch.setAttribute("class", "switch");
+
+  const cAndFInput = document.createElement("input");
+  cAndFInput.classList.add("input");
+  cAndFInput.setAttribute("type", "checkbox");
+
+  const cAndFSlider = document.createElement("span");
+  cAndFSlider.classList.add("slider");
+  cAndFSlider.setAttribute("class", "slider round");
+
+  const Celsius = document.createElement("div");
+  Celsius.classList.add("celsius");
+  Celsius.textContent = "C";
+
   const mainBody = document.createElement("div");
   mainBody.classList.add("mainBody");
 
@@ -141,25 +164,36 @@ function createLayout() {
   footerText.classList.add("footerText");
   footerText.textContent = "Made by Cole Burch";
 
+  const githubLink = document.createElement("a");
+  githubLink.setAttribute("href", "https://github.com/ColeBurch");
+
   const github = new Image();
   github.src = githubSVG;
   github.classList.add("github");
 
   header.appendChild(searchContainer);
-  searchContainer.appendChild(form);
   form.appendChild(areaInput);
+  header.appendChild(sliderContainer);
+  sliderContainer.appendChild(farenheit);
+  sliderContainer.appendChild(cAndFSwitch);
+  cAndFSwitch.appendChild(cAndFInput);
+  cAndFSwitch.appendChild(cAndFSlider);
+  sliderContainer.appendChild(Celsius);
+  searchContainer.appendChild(form);
   mainBody.appendChild(leftBox);
   mainBody.appendChild(rightBox);
   leftBox.appendChild(createCurrentDayWidget());
   rightBox.appendChild(createThreeDayForecastWidget());
   rightBox.appendChild(createHourlyForecastWidget());
   footer.appendChild(footerText);
-  footer.appendChild(github);
+  footer.appendChild(githubLink);
+  githubLink.appendChild(github);
   wrapper.appendChild(header);
   wrapper.appendChild(mainBody);
   wrapper.appendChild(footer);
 
   form.addEventListener("submit", handleSubmit);
+  cAndFInput.addEventListener("change", toggleCAndF);
 
   return wrapper;
 }
@@ -1104,9 +1138,15 @@ function updateDashboard(weatherData) {
   const currentTempFParameter = document.querySelector(".currentTempF");
   currentTempFParameter.textContent =
     Math.round(weatherData.currentTempFarenheit) + "F";
+  const currentTempCParameter = document.querySelector(".currentTempC");
+  currentTempCParameter.textContent =
+    Math.round(weatherData.currentTempCelsius) + "C";
   const feelsLikeFParameter = document.querySelector(".feelsLikeF");
   feelsLikeFParameter.textContent =
     "FEELS LIKE: " + Math.round(weatherData.currentFeelsLikeFarenheit) + "F";
+  const feelsLikeCParameter = document.querySelector(".feelsLikeC");
+  feelsLikeCParameter.textContent =
+    "FEELS LIKE: " + Math.round(weatherData.currentFeelsLikeCelsius) + "C";
   const windSpeedParameter = document.querySelector(".windSpeed");
   windSpeedParameter.textContent =
     "WIND: " + weatherData.currentWindSpeed + " MPH";
@@ -1116,18 +1156,30 @@ function updateDashboard(weatherData) {
   const todayHighFParameter = document.querySelector(".todayHighF");
   todayHighFParameter.textContent =
     Math.round(weatherData.currentHighFarenheit) + "F";
+  const todayHighCParameter = document.querySelector(".todayHighC");
+  todayHighCParameter.textContent =
+    Math.round(weatherData.currentHighCelsius) + "C";
   const todayLowFParameter = document.querySelector(".todayLowF");
   todayLowFParameter.textContent =
     Math.round(weatherData.currentLowFarenheit) + "F";
+  const todayLowCParameter = document.querySelector(".todayLowC");
+  todayLowCParameter.textContent =
+    Math.round(weatherData.currentLowCelsius) + "C";
   const todayWeatherIconParameter = document.querySelector(".todayWeatherIcon");
   let imageNumber = weatherData.currentConditionIcon;
   todayWeatherIconParameter.src = getImagePointer(imageNumber);
   const tomorrowHighFParameter = document.querySelector(".tomorrowHighF");
   tomorrowHighFParameter.textContent =
     Math.round(weatherData.tomorrowHighFarenheit) + "F";
+  const tomorrowHighCParameter = document.querySelector(".tomorrowHighC");
+  tomorrowHighCParameter.textContent =
+    Math.round(weatherData.tomorrowHighCelsius) + "C";
   const tomorrowLowFParameter = document.querySelector(".tomorrowLowF");
   tomorrowLowFParameter.textContent =
     Math.round(weatherData.tomorrowLowFarenheit) + "F";
+  const tomorrowLowCParameter = document.querySelector(".tomorrowLowC");
+  tomorrowLowCParameter.textContent =
+    Math.round(weatherData.tomorrowLowCelsius) + "C";
   const tomorrowWeatherIconParameter = document.querySelector(
     ".tomorrowWeatherIcon"
   );
@@ -1136,9 +1188,15 @@ function updateDashboard(weatherData) {
   const twoDayHighFParameter = document.querySelector(".inTwoDaysHighF");
   twoDayHighFParameter.textContent =
     Math.round(weatherData.twoDayHighFarenheit) + "F";
+  const twoDayHighCParameter = document.querySelector(".inTwoDaysHighC");
+  twoDayHighCParameter.textContent =
+    Math.round(weatherData.twoDayHighCelsius) + "C";
   const twoDayLowFParameter = document.querySelector(".inTwoDaysLowF");
   twoDayLowFParameter.textContent =
     Math.round(weatherData.twoDayLowFarenheit) + "F";
+  const twoDayLowCParameter = document.querySelector(".inTwoDaysLowC");
+  twoDayLowCParameter.textContent =
+    Math.round(weatherData.twoDayLowCelsius) + "C";
   const twoDayWeatherIconParameter = document.querySelector(
     ".inTwoDaysWeatherIcon"
   );
@@ -1149,6 +1207,9 @@ function updateDashboard(weatherData) {
   const zeroHourTempFParameter = document.getElementById("zeroHourTempF");
   zeroHourTempFParameter.textContent =
     Math.round(weatherData.zeroHourTempFVar) + "F";
+  const zeroHourTempCParameter = document.getElementById("zeroHourTempC");
+  zeroHourTempCParameter.textContent =
+    Math.round(weatherData.zeroHourTempCVar) + "C";
   const zeroHourIconParameter = document.getElementById("zeroHourWeatherIcon");
   imageNumber = weatherData.zeroHourIconVar;
   zeroHourIconParameter.src = getImagePointer(imageNumber);
@@ -1157,6 +1218,9 @@ function updateDashboard(weatherData) {
   const oneHourTempFParameter = document.getElementById("oneHourTempF");
   oneHourTempFParameter.textContent =
     Math.round(weatherData.oneHourTempFVar) + "F";
+  const oneHourTempCParameter = document.getElementById("oneHourTempC");
+  oneHourTempCParameter.textContent =
+    Math.round(weatherData.oneHourTempCVar) + "C";
   const oneHourIconParameter = document.getElementById("oneHourWeatherIcon");
   imageNumber = weatherData.oneHourIconVar;
   oneHourIconParameter.src = getImagePointer(imageNumber);
@@ -1165,6 +1229,9 @@ function updateDashboard(weatherData) {
   const twoHourTempFParameter = document.getElementById("twoHourTempF");
   twoHourTempFParameter.textContent =
     Math.round(weatherData.twoHourTempFVar) + "F";
+  const twoHourTempCParameter = document.getElementById("twoHourTempC");
+  twoHourTempCParameter.textContent =
+    Math.round(weatherData.twoHourTempCVar) + "C";
   const twoHourIconParameter = document.getElementById("twoHourWeatherIcon");
   imageNumber = weatherData.twoHourIconVar;
   twoHourIconParameter.src = getImagePointer(imageNumber);
@@ -1173,6 +1240,9 @@ function updateDashboard(weatherData) {
   const threeHourTempFParameter = document.getElementById("threeHourTempF");
   threeHourTempFParameter.textContent =
     Math.round(weatherData.threeHourTempFVar) + "F";
+  const threeHourTempCParameter = document.getElementById("threeHourTempC");
+  threeHourTempCParameter.textContent =
+    Math.round(weatherData.threeHourTempCVar) + "C";
   const threeHourIconParameter = document.getElementById(
     "threeHourWeatherIcon"
   );
@@ -1183,6 +1253,9 @@ function updateDashboard(weatherData) {
   const fourHourTempFParameter = document.getElementById("fourHourTempF");
   fourHourTempFParameter.textContent =
     Math.round(weatherData.fourHourTempFVar) + "F";
+  const fourHourTempCParameter = document.getElementById("fourHourTempC");
+  fourHourTempCParameter.textContent =
+    Math.round(weatherData.fourHourTempCVar) + "C";
   const fourHourIconParameter = document.getElementById("fourHourWeatherIcon");
   imageNumber = weatherData.fourHourIconVar;
   fourHourIconParameter.src = getImagePointer(imageNumber);
@@ -1191,6 +1264,9 @@ function updateDashboard(weatherData) {
   const fiveHourTempFParameter = document.getElementById("fiveHourTempF");
   fiveHourTempFParameter.textContent =
     Math.round(weatherData.fiveHourTempFVar) + "F";
+  const fiveHourTempCParameter = document.getElementById("fiveHourTempC");
+  fiveHourTempCParameter.textContent =
+    Math.round(weatherData.fiveHourTempCVar) + "C";
   const fiveHourIconParameter = document.getElementById("fiveHourWeatherIcon");
   imageNumber = weatherData.fiveHourIconVar;
   fiveHourIconParameter.src = getImagePointer(imageNumber);
@@ -1199,6 +1275,9 @@ function updateDashboard(weatherData) {
   const sixHourTempFParameter = document.getElementById("sixHourTempF");
   sixHourTempFParameter.textContent =
     Math.round(weatherData.sixHourTempFVar) + "F";
+  const sixHourTempCParameter = document.getElementById("sixHourTempC");
+  sixHourTempCParameter.textContent =
+    Math.round(weatherData.sixHourTempCVar) + "C";
   const sixHourIconParameter = document.getElementById("sixHourWeatherIcon");
   imageNumber = weatherData.sixHourIconVar;
   sixHourIconParameter.src = getImagePointer(imageNumber);
@@ -1207,6 +1286,9 @@ function updateDashboard(weatherData) {
   const sevenHourTempFParameter = document.getElementById("sevenHourTempF");
   sevenHourTempFParameter.textContent =
     Math.round(weatherData.sevenHourTempFVar) + "F";
+  const sevenHourTempCParameter = document.getElementById("sevenHourTempC");
+  sevenHourTempCParameter.textContent =
+    Math.round(weatherData.sevenHourTempCVar) + "C";
   const sevenHourIconParameter = document.getElementById(
     "sevenHourWeatherIcon"
   );
@@ -1217,6 +1299,9 @@ function updateDashboard(weatherData) {
   const eightHourTempFParameter = document.getElementById("eightHourTempF");
   eightHourTempFParameter.textContent =
     Math.round(weatherData.eightHourTempFVar) + "F";
+  const eightHourTempCParameter = document.getElementById("eightHourTempC");
+  eightHourTempCParameter.textContent =
+    Math.round(weatherData.eightHourTempCVar) + "C";
   const eightHourIconParameter = document.getElementById(
     "eightHourWeatherIcon"
   );
@@ -1227,6 +1312,9 @@ function updateDashboard(weatherData) {
   const nineHourTempFParameter = document.getElementById("nineHourTempF");
   nineHourTempFParameter.textContent =
     Math.round(weatherData.nineHourTempFVar) + "F";
+  const nineHourTempCParameter = document.getElementById("nineHourTempC");
+  nineHourTempCParameter.textContent =
+    Math.round(weatherData.nineHourTempCVar) + "C";
   const nineHourIconParameter = document.getElementById("nineHourWeatherIcon");
   imageNumber = weatherData.nineHourIconVar;
   nineHourIconParameter.src = getImagePointer(imageNumber);
@@ -1235,6 +1323,9 @@ function updateDashboard(weatherData) {
   const tenHourTempFParameter = document.getElementById("tenHourTempF");
   tenHourTempFParameter.textContent =
     Math.round(weatherData.tenHourTempFVar) + "F";
+  const tenHourTempCParameter = document.getElementById("tenHourTempC");
+  tenHourTempCParameter.textContent =
+    Math.round(weatherData.tenHourTempCVar) + "C";
   const tenHourIconParameter = document.getElementById("tenHourWeatherIcon");
   imageNumber = weatherData.tenHourIconVar;
   tenHourIconParameter.src = getImagePointer(imageNumber);
@@ -1243,6 +1334,9 @@ function updateDashboard(weatherData) {
   const elevenHourTempFParameter = document.getElementById("elevenHourTempF");
   elevenHourTempFParameter.textContent =
     Math.round(weatherData.elevenHourTempFVar) + "F";
+  const elevenHourTempCParameter = document.getElementById("elevenHourTempC");
+  elevenHourTempCParameter.textContent =
+    Math.round(weatherData.elevenHourTempCVar) + "C";
   const elevenHourIconParameter = document.getElementById(
     "elevenHourWeatherIcon"
   );
@@ -1611,14 +1705,17 @@ function handleRightClick() {
 function setBackgroundImage(currentCondition) {
   console.log(currentCondition);
   const wrapperText = document.querySelector(".wrapper");
+  const github = document.querySelector(".github");
   if (currentCondition == "Sunny") {
     wrapperText.classList.remove("whiteText");
     wrapperText.classList.add("blackText");
+    github.classList.remove("white");
     return sunnyDay;
   }
   if (currentCondition == "Clear") {
     wrapperText.classList.remove("blackText");
     wrapperText.classList.add("whiteText");
+    github.classList.add("white");
     return clearNight;
   }
   if (
@@ -1629,6 +1726,7 @@ function setBackgroundImage(currentCondition) {
   ) {
     wrapperText.classList.remove("whiteText");
     wrapperText.classList.add("blackText");
+    github.classList.remove("white");
     return cloudyDay;
   }
   if (
@@ -1638,6 +1736,7 @@ function setBackgroundImage(currentCondition) {
   ) {
     wrapperText.classList.remove("whiteText");
     wrapperText.classList.add("blackText");
+    github.classList.remove("white");
     return foggyDay;
   }
   if (
@@ -1670,6 +1769,7 @@ function setBackgroundImage(currentCondition) {
   ) {
     wrapperText.classList.remove("whiteText");
     wrapperText.classList.add("blackText");
+    github.classList.remove("white");
     return snowyDay;
   }
   if (
@@ -1682,6 +1782,7 @@ function setBackgroundImage(currentCondition) {
   ) {
     wrapperText.classList.remove("whiteText");
     wrapperText.classList.add("blackText");
+    github.classList.remove("white");
     return overcastDay;
   }
   if (
@@ -1694,6 +1795,7 @@ function setBackgroundImage(currentCondition) {
   ) {
     wrapperText.classList.remove("blackText");
     wrapperText.classList.add("whiteText");
+    github.classList.add("white");
     return rainyDay;
   }
   if (
@@ -1702,11 +1804,189 @@ function setBackgroundImage(currentCondition) {
   ) {
     wrapperText.classList.remove("blackText");
     wrapperText.classList.add("whiteText");
+    github.classList.add("white");
     return stormyDay;
   } else {
     wrapperText.classList.remove("whiteText");
     wrapperText.classList.add("blackText");
+    github.classList.remove("white");
     return sunnyDay;
+  }
+}
+
+function toggleCAndF() {
+  const checkbox = document.querySelector(".input");
+  const currentTempF = document.querySelector(".currentTempF");
+  const currentTempC = document.querySelector(".currentTempC");
+  const feelsLikeF = document.querySelector(".feelsLikeF");
+  const feelsLikeC = document.querySelector(".feelsLikeC");
+  const todayHighF = document.querySelector(".todayHighF");
+  const todayHighC = document.querySelector(".todayHighC");
+  const todayLowF = document.querySelector(".todayLowF");
+  const todayLowC = document.querySelector(".todayLowC");
+  const tomorrowHighF = document.querySelector(".tomorrowHighF");
+  const tomorrowHighC = document.querySelector(".tomorrowHighC");
+  const tomorrowLowF = document.querySelector(".tomorrowLowF");
+  const tomorrowLowC = document.querySelector(".tomorrowLowC");
+  const inTwoDaysHighF = document.querySelector(".inTwoDaysHighF");
+  const inTwoDaysHighC = document.querySelector(".inTwoDaysHighC");
+  const inTwoDaysLowF = document.querySelector(".inTwoDaysLowF");
+  const inTwoDaysLowC = document.querySelector(".inTwoDaysLowC");
+  const zeroHourTempC = document.getElementById("zeroHourTempC");
+  const zeroHourTempF = document.getElementById("zeroHourTempF");
+  const oneHourTempC = document.getElementById("oneHourTempC");
+  const oneHourTempF = document.getElementById("oneHourTempF");
+  const twoHourTempC = document.getElementById("twoHourTempC");
+  const twoHourTempF = document.getElementById("twoHourTempF");
+  const threeHourTempC = document.getElementById("threeHourTempC");
+  const threeHourTempF = document.getElementById("threeHourTempF");
+  const fourHourTempC = document.getElementById("fourHourTempC");
+  const fourHourTempF = document.getElementById("fourHourTempF");
+  const fiveHourTempC = document.getElementById("fiveHourTempC");
+  const fiveHourTempF = document.getElementById("fiveHourTempF");
+  const sixHourTempC = document.getElementById("sixHourTempC");
+  const sixHourTempF = document.getElementById("sixHourTempF");
+  const sevenHourTempC = document.getElementById("sevenHourTempC");
+  const sevenHourTempF = document.getElementById("sevenHourTempF");
+  const eightHourTempC = document.getElementById("eightHourTempC");
+  const eightHourTempF = document.getElementById("eightHourTempF");
+  const nineHourTempC = document.getElementById("nineHourTempC");
+  const nineHourTempF = document.getElementById("nineHourTempF");
+  const tenHourTempC = document.getElementById("tenHourTempC");
+  const tenHourTempF = document.getElementById("tenHourTempF");
+  const elevenHourTempC = document.getElementById("elevenHourTempC");
+  const elevenHourTempF = document.getElementById("elevenHourTempF");
+
+  if (checkbox.checked == true) {
+    currentTempF.classList.remove("active");
+    currentTempC.classList.add("active");
+    feelsLikeF.classList.remove("active");
+    feelsLikeC.classList.add("active");
+    todayHighF.classList.remove("active");
+    todayHighC.classList.add("active");
+    todayLowF.classList.remove("active");
+    todayLowC.classList.add("active");
+    tomorrowHighF.classList.remove("active");
+    tomorrowHighC.classList.add("active");
+    tomorrowLowF.classList.remove("active");
+    tomorrowLowC.classList.add("active");
+    inTwoDaysHighF.classList.remove("active");
+    inTwoDaysHighC.classList.add("active");
+    inTwoDaysLowF.classList.remove("active");
+    inTwoDaysLowC.classList.add("active");
+    zeroHourTempF.classList.remove("active");
+    zeroHourTempF.classList.add("inactive");
+    zeroHourTempC.classList.remove("inactive");
+    zeroHourTempC.classList.add("active");
+    oneHourTempF.classList.remove("active");
+    oneHourTempF.classList.add("inactive");
+    oneHourTempC.classList.remove("inactive");
+    oneHourTempC.classList.add("active");
+    twoHourTempF.classList.remove("active");
+    twoHourTempF.classList.add("inactive");
+    twoHourTempC.classList.remove("inactive");
+    twoHourTempC.classList.add("active");
+    threeHourTempF.classList.remove("active");
+    threeHourTempF.classList.add("inactive");
+    threeHourTempC.classList.remove("inactive");
+    threeHourTempC.classList.add("active");
+    fourHourTempF.classList.remove("active");
+    fourHourTempF.classList.add("inactive");
+    fourHourTempC.classList.remove("inactive");
+    fourHourTempC.classList.add("active");
+    fiveHourTempF.classList.remove("active");
+    fiveHourTempF.classList.add("inactive");
+    fiveHourTempC.classList.remove("inactive");
+    fiveHourTempC.classList.add("active");
+    sixHourTempF.classList.remove("active");
+    sixHourTempF.classList.add("inactive");
+    sixHourTempC.classList.remove("inactive");
+    sixHourTempC.classList.add("active");
+    sevenHourTempF.classList.remove("active");
+    sevenHourTempF.classList.add("inactive");
+    sevenHourTempC.classList.remove("inactive");
+    sevenHourTempC.classList.add("active");
+    eightHourTempF.classList.remove("active");
+    eightHourTempF.classList.add("inactive");
+    eightHourTempC.classList.remove("inactive");
+    eightHourTempC.classList.add("active");
+    nineHourTempF.classList.remove("active");
+    nineHourTempF.classList.add("inactive");
+    nineHourTempC.classList.remove("inactive");
+    nineHourTempC.classList.add("active");
+    tenHourTempF.classList.remove("active");
+    tenHourTempF.classList.add("inactive");
+    tenHourTempC.classList.remove("inactive");
+    tenHourTempC.classList.add("active");
+    elevenHourTempF.classList.remove("active");
+    elevenHourTempF.classList.add("inactive");
+    elevenHourTempC.classList.remove("inactive");
+    elevenHourTempC.classList.add("active");
+  } else {
+    currentTempC.classList.remove("active");
+    currentTempF.classList.add("active");
+    feelsLikeC.classList.remove("active");
+    feelsLikeF.classList.add("active");
+    todayHighC.classList.remove("active");
+    todayHighF.classList.add("active");
+    todayLowC.classList.remove("active");
+    todayLowF.classList.add("active");
+    tomorrowHighC.classList.remove("active");
+    tomorrowHighF.classList.add("active");
+    tomorrowLowC.classList.remove("active");
+    tomorrowLowF.classList.add("active");
+    inTwoDaysHighC.classList.remove("active");
+    inTwoDaysHighF.classList.add("active");
+    inTwoDaysLowC.classList.remove("active");
+    inTwoDaysLowF.classList.add("active");
+    zeroHourTempC.classList.remove("active");
+    zeroHourTempC.classList.add("inactive");
+    zeroHourTempF.classList.remove("inactive");
+    zeroHourTempF.classList.add("active");
+    oneHourTempC.classList.remove("active");
+    oneHourTempC.classList.add("inactive");
+    oneHourTempF.classList.remove("inactive");
+    oneHourTempF.classList.add("active");
+    twoHourTempC.classList.remove("active");
+    twoHourTempC.classList.add("inactive");
+    twoHourTempF.classList.remove("inactive");
+    twoHourTempF.classList.add("active");
+    threeHourTempC.classList.remove("active");
+    threeHourTempC.classList.add("inactive");
+    threeHourTempF.classList.remove("inactive");
+    threeHourTempF.classList.add("active");
+    fourHourTempC.classList.remove("active");
+    fourHourTempC.classList.add("inactive");
+    fourHourTempF.classList.remove("inactive");
+    fourHourTempF.classList.add("active");
+    fiveHourTempC.classList.remove("active");
+    fiveHourTempC.classList.add("inactive");
+    fiveHourTempF.classList.remove("inactive");
+    fiveHourTempF.classList.add("active");
+    sixHourTempC.classList.remove("active");
+    sixHourTempC.classList.add("inactive");
+    sixHourTempF.classList.remove("inactive");
+    sixHourTempF.classList.add("active");
+    sevenHourTempC.classList.remove("active");
+    sevenHourTempC.classList.add("inactive");
+    sevenHourTempF.classList.remove("inactive");
+    sevenHourTempF.classList.add("active");
+    eightHourTempC.classList.remove("active");
+    eightHourTempC.classList.add("inactive");
+    eightHourTempF.classList.remove("inactive");
+    eightHourTempF.classList.add("active");
+    nineHourTempC.classList.remove("active");
+    nineHourTempC.classList.add("inactive");
+    nineHourTempF.classList.remove("inactive");
+    nineHourTempF.classList.add("active");
+    tenHourTempC.classList.remove("active");
+    tenHourTempC.classList.add("inactive");
+    tenHourTempF.classList.remove("inactive");
+    tenHourTempF.classList.add("active");
+    elevenHourTempC.classList.remove("active");
+    elevenHourTempC.classList.add("inactive");
+    elevenHourTempF.classList.remove("inactive");
+    elevenHourTempF.classList.add("active");
   }
 }
 
