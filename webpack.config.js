@@ -2,7 +2,7 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
-  mode: "development",
+  mode: "production",
   entry: {
     index: "./src/index.js",
   },
@@ -12,7 +12,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: "Development",
+      title: "Weather App",
     }),
   ],
   module: {
