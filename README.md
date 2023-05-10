@@ -6,4 +6,4 @@ This is a project written in vanilla Javascript utilizing webpack as the asset m
 
 ## Great UI Design!
 
-<img src="./src/images/READMEPhotos/UIExample.png" width="300" height="auto">
+<img src="./src/images/READMEPhotos/UIExample.png" width="600" height="auto">
