@@ -919,7 +919,7 @@ function getImageVariable(ImageURL) {
 
 async function getWeather(location) {
   const url =
-    "http://api.weatherapi.com/v1/forecast.json?key=83eb9e8a5cef4f549f114636231704&q=" +
+    "https://api.weatherapi.com/v1/forecast.json?key=83eb9e8a5cef4f549f114636231704&q=" +
     location +
     "&days=3&aqi=no&alerts=no";
   const apiResponse = await fetch(url);
